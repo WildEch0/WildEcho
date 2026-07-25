@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Як здійснити покупку | Wild Echo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        /* =========================================
+           1. ОСНОВНІ НАЛАШТУВАННЯ (OFFICIAL LEGAL STYLE)
+           ========================================= */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            padding-bottom: 100px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* =========================================
+           2. НАВІГАЦІЯ
+           ========================================= */
+        .navbar {
+            background-color: #111;
+            border-bottom: 2px solid #333;
+            padding: 20px 0;
+            margin-bottom: 60px;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-logo {
+            font-family: Impact, sans-serif;
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .menu-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        /* =========================================
+           3. ТЕКСТОВИЙ КОНТЕНТ (GUIDE STYLE)
+           ========================================= */
+        
+        h1 {
+            font-family: 'VT323', monospace;
+            font-size: 48px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            color: #ffffff;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .guide-intro {
+            background: #111;
+            padding: 20px;
+            border-left: 4px solid #3c8527;
+            font-size: 18px;
+            margin-bottom: 50px;
+        }
+
+        .guide-intro strong {
+            color: #3c8527;
+        }
+
+        /* Кроки */
+        .step-item {
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .step-number {
+            font-family: 'VT323', monospace;
+            font-size: 24px;
+            color: #3c8527;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            font-family: 'VT323', monospace;
+            font-size: 32px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        p {
+            font-size: 16px;
+            color: #cccccc;
+            margin-bottom: 15px;
+        }
+
+        /* Списки */
+        .mc-list {
+            list-style: none;
+            margin: 15px 0 25px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid #222;
+        }
+
+        .mc-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: #ddd;
+        }
+
+        .mc-list li::before {
+            content: '■';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: #3c8527;
+            font-size: 12px;
+        }
+
+        /* Блок безпеки */
+        .safety-box {
+            background: #1a0000;
+            border: 2px solid #ff4444;
+            padding: 30px;
+            margin: 60px 0;
+        }
+
+        .safety-box h3 {
+            font-family: 'VT323', monospace;
+            font-size: 28px;
+            color: #ff4444;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .safety-list {
+            list-style: none;
+        }
+
+        .safety-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .safety-list li::before {
+            content: '⚠';
+            position: absolute;
+            left: 0;
+            color: #ff4444;
+            font-weight: bold;
+        }
+
+        /* Футер допомоги */
+        .help-cta {
+            text-align: center;
+            padding: 40px;
+            background: #111;
+            border: 1px solid #333;
+        }
+
+        .help-cta h3 {
+            font-family: 'VT323', monospace;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .btn-discord {
+            display: inline-block;
+            background: #5865F2;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 30px;
+            font-weight: 900;
+            text-transform: uppercase;
+            border-bottom: 4px solid #3a45c3;
+            transition: 0.2s;
+        }
+
+        .btn-discord:hover {
+            background: #6a77f5;
+            transform: translateY(-2px);
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">WILDECHO</a>
+            <div class="menu-links">
+                <a href="../index.html">Головна</a>
+                <a href="../shop.html">Магазин</a>
+                <a href="index.html">Legal</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        
+        <h1 class="vt-font">Як здійснити покупку</h1>
+        
+        <div class="guide-intro">
+            Придбати товар на <strong>Wild Echo</strong> дуже просто. Усі покупки оформлюються через наш <strong>Discord</strong> та оплачуються за допомогою <strong>Donatello</strong>.
+        </div>
+
+        <!-- КРОК 1 -->
+        <section class="step-item">
+            <span class="step-number">КРОК 1.</span>
+            <h2 class="vt-font">Оберіть товар</h2>
+            <p>Перегляньте каталог магазину на нашому сайті та виберіть привілей, набір, послугу або інший товар, який вас цікавить.</p>
+        </section>
+
+        <!-- КРОК 2 -->
+        <section class="step-item">
+            <span class="step-number">КРОК 2.</span>
+            <h2 class="vt-font">Перейдіть до Discord</h2>
+            <p>Натисніть кнопку <strong>«Купити»</strong> на картці товару, після чого ви будете автоматично перенаправлені на наш офіційний Discord-сервер.</p>
+            <p>У Discord необхідно створити звернення (тікет) до адміністрації. Укажіть у повідомленні:</p>
+            <ul class="mc-list">
+                <li>ваш ігровий нікнейм Minecraft;</li>
+                <li>назву товару, який бажаєте придбати;</li>
+                <li>за потреби — додаткову інформацію щодо замовлення (наприклад, посилання на трек для платівки).</li>
+            </ul>
+        </section>
+
+        <!-- КРОК 3 -->
+        <section class="step-item">
+            <span class="step-number">КРОК 3.</span>
+            <h2 class="vt-font">Підтвердження замовлення</h2>
+            <p>Адміністратор перевірить ваше звернення в порядку черги, відповість на запитання (якщо вони виникнуть) та надасть вам персональне посилання для оплати через сервіс <strong>Donatello</strong>.</p>
+        </section>
+
+        <!-- КРОК 4 -->
+        <section class="step-item">
+            <span class="step-number">КРОК 4.</span>
+            <h2 class="vt-font">Оплата</h2>
+            <p>Оплатіть замовлення через Donatello, використовуючи будь-який зручний спосіб оплати. Після успішного платежу повідомте адміністратора в тікеті або просто дочекайтеся автоматичного підтвердження.</p>
+        </section>
+
+        <!-- КРОК 5 -->
+        <section class="step-item">
+            <span class="step-number">КРОК 5.</span>
+            <h2 class="vt-font">Отримання товару</h2>
+            <p>Після підтвердження оплати адміністрація активує ваше замовлення. У більшості випадків видача займає лише кілька хвилин.</p>
+            <p>Якщо ви не перебуваєте на сервері під час видачі, не хвилюйтеся — просто зайдіть пізніше, товар уже буде активований на вашому акаунті.</p>
+        </section>
+
+        <!-- БЛОК ПРОБЛЕМ -->
+        <h2 class="vt-font">Якщо виникла проблема</h2>
+        <p>Якщо після оплати ви не отримали товар або виникли будь-які труднощі:</p>
+        <ul class="mc-list">
+            <li>не закривайте поточний тікет у Discord;</li>
+            <li>надішліть скріншот підтвердження оплати (чека);</li>
+            <li>дочекайтеся відповіді адміністратора.</li>
+        </ul>
+        <p>Ми обов'язково допоможемо вирішити проблему якнайшвидше.</p>
+
+        <!-- БЕЗПЕКА -->
+        <section class="safety-box">
+            <h3 class="vt-font">Безпека</h3>
+            <ul class="safety-list">
+                <li>Купуйте товари лише через офіційний Discord Wild Echo.</li>
+                <li>Оплачуйте замовлення тільки за посиланням, яке надав адміністратор через систему Donatello.</li>
+                <li>Ніколи не передавайте свої паролі або дані акаунта стороннім особам.</li>
+            </ul>
+        </section>
+
+        <!-- CTA -->
+        <div class="help-cta">
+            <h3 class="vt-font">Потрібна допомога?</h3>
+            <p>Якщо у вас залишилися запитання щодо покупки або оплати, відкрийте тікет у нашому Discord — адміністрація завжди готова допомогти.</p>
+            <a href="https://discord.gg/nBhVTp8xD9" class="btn-discord">Відкрити тікет у Discord</a>
+        </div>
+
+    </main>
+
+</body>
+</html>

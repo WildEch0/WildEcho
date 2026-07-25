@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>403 - Доступ відхилено | WildEcho</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ФОН ТА ВІДЕО */
+.mc-error-page {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+}
+
+.mc-bg-video {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%; min-height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.mc-video-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Глибоке затемнення */
+    z-index: -1;
+}
+
+/* ОСНОВНА ПАНЕЛЬ (стиль Minecraft.net) */
+.mc-error-container {
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+    z-index: 10;
+}
+
+.mc-error-content {
+    background-color: #1a1a1a; /* Темно-сірий антрацит */
+    border: 1px solid #333;
+    padding: 60px;
+    position: relative;
+}
+
+/* ТЕГИ ТА ЗАГОЛОВКИ */
+.mc-error-tag {
+    background-color: #fff;
+    color: #000;
+    padding: 4px 12px;
+    font-weight: 900;
+    font-size: 14px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.mc-error-title {
+    font-family: 'Impact', sans-serif;
+    font-size: 52px;
+    color: #fff;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.mc-error-body-text {
+    margin: 30px 0;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #fff;
+}
+
+.mc-divider {
+    border: none;
+    border-top: 1px solid #333;
+    margin: 40px 0;
+}
+
+/* ФУТЕР ПАНЕЛІ */
+.mc-error-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.mc-error-info p {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 8px;
+}
+
+.mc-status-code {
+    color: #ff4d4d; /* Червоний колір для помилки */
+    font-weight: bold;
+    font-size: 12px;
+}
+
+/* КНОПКА (Офіційний стиль) */
+.mc-home-btn {
+    background-color: #fff;
+    color: #888; /* Колір тексту як на фото */
+    text-decoration: none;
+    padding: 15px 40px;
+    font-weight: 900;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: 0.2s;
+}
+
+.mc-home-btn:hover {
+    background-color: #3c8527; /* Зелений при наведенні */
+    color: #fff;
+}
+
+.mc-home-btn .mc-arrow {
+    font-size: 26px;
+    line-height: 1;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+    .mc-error-content { padding: 30px; }
+    .mc-error-title { font-size: 32px; }
+    .mc-error-footer { flex-direction: column; align-items: center; text-align: center; }
+    .mc-home-btn { width: 100%; justify-content: center; margin-top: 30px; }
+}
+
+/* Додаткові стилі для кнопок на сторінці 401 */
+.mc-error-btns {
+    display: flex;
+    gap: 15px;
+}
+
+/* Основна кнопка (Увійти) може бути одразу зеленою для заклику до дії */
+.mc-primary-btn {
+    background-color: #3c8527 !important;
+    color: #fff !important;
+}
+
+.mc-primary-btn:hover {
+    background-color: #47a02e !important;
+}
+
+/* Адаптивність для двох кнопок */
+@media (max-width: 768px) {
+    .mc-error-btns {
+        flex-direction: column;
+        width: 100%;
+    }
+    .mc-home-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Решта стилів (.mc-error-page, .mc-error-content і т.д.) 
+   залишаються такими ж, як у коді для помилки 400 */
+   /* Всі основні стилі (.mc-error-page, .mc-error-content тощо) 
+   вже мають бути у твоєму файлі з попередніх кроків. */
+
+.mc-error-btns {
+    display: flex;
+    gap: 15px;
+}
+
+/* Робимо кнопку зеленою для заклику до дії */
+.mc-primary-btn {
+    background-color: #3c8527 !important;
+    color: #fff !important;
+    border: none;
+}
+
+.mc-primary-btn:hover {
+    background-color: #47a02e !important;
+}
+
+@media (max-width: 768px) {
+    .mc-error-btns {
+        width: 100%;
+    }
+    .mc-home-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+</style>
+</head>
+<body class="mc-error-page">
+
+    <!-- ВІДЕО ФОН -->
+    <video autoplay muted loop playsinline class="mc-bg-video">
+        <source src="/assets/video/your-video.webp" type="video/webp">
+    </video>
+    <div class="mc-video-overlay"></div>
+
+    <!-- КОНТЕЙНЕР ПАНЕЛІ -->
+    <div class="mc-error-container">
+        <div class="mc-error-content">
+            
+            <div class="mc-error-header">
+                <span class="mc-error-tag">ERROR 403</span>
+                <h1 class="mc-error-title">ДОСТУП ВІДХИЛЕНО</h1>
+            </div>
+
+            <div class="mc-error-body-text">
+                <p>Ця територія захищена потужними чарами WorldGuard. У вас недостатньо прав, щоб переглядати цей чанк або взаємодіяти з цією сторінкою. Тільки адміністратори або власники регіону мають сюди доступ.</p>
+            </div>
+
+            <hr class="mc-divider">
+
+            <div class="mc-error-footer">
+                <div class="mc-error-info">
+                    <p>Схоже, вам варто повернутися на безпечну територію.</p>
+                    <span class="mc-status-code">* STATUS: FORBIDDEN_AREA</span>
+                </div>
+                
+                <div class="mc-error-btns">
+                    <!-- Кнопка Головної -->
+                    <a href="/index.php" class="mc-home-btn mc-primary-btn">
+                        НА СПАВН (ГОЛОВНУ) <span class="mc-arrow">›</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

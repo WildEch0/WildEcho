@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Торговельні марки | Wild Echo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        /* =========================================
+           1. ГЛОБАЛЬНІ НАЛАШТУВАННЯ
+           ========================================= */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --mc-blue: #00ccff;
+            --mc-gray: #aaaaaa;
+            --bg-dark: #000000;
+            --card-bg: #0a0a0a;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: url('https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/realms/bedrock-bg.png');
+            background-size: 100px;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            padding-bottom: 100px;
+        }
+
+        .vt-font { font-family: 'VT323', monospace; text-transform: uppercase; }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* =========================================
+           2. НАВІГАЦІЯ
+           ========================================= */
+        .navbar {
+            background-color: #111;
+            border-bottom: 3px solid var(--mc-blue);
+            padding: 15px 0;
+            margin-bottom: 60px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: Impact, sans-serif;
+            font-size: 24px;
+            color: #fff !important;
+            text-decoration: none !important;
+        }
+
+        .menu-links a {
+            color: #fff !important;
+            text-decoration: none !important;
+            margin-left: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        /* =========================================
+           3. ТЕКСТОВИЙ КОНТЕНТ (OFFICIAL LEGAL STYLE)
+           ========================================= */
+        
+        .legal-header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-top: 40px;
+        }
+
+        h1 {
+            font-size: 52px;
+            color: #ffffff;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(0, 204, 255, 0.3);
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: var(--mc-blue);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Секції */
+        .trademark-section {
+            margin-bottom: 50px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid #222;
+            padding: 35px;
+            position: relative;
+        }
+
+        h2 {
+            font-size: 32px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h2::before {
+            content: '■';
+            color: var(--mc-blue);
+            font-size: 16px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+        /* Особливий блок для Minecraft/Mojang */
+        .mojang-disclaimer {
+            background: #111;
+            border-left: 5px solid var(--mc-blue);
+            padding: 30px;
+            margin: 40px 0;
+        }
+
+        .mojang-disclaimer strong {
+            color: #fff;
+        }
+
+        /* Повідомлення про порушення */
+        .report-box {
+            border: 1px dashed #444;
+            padding: 25px;
+            background: #050505;
+        }
+
+        .report-box h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--mc-blue);
+        }
+
+        /* Футер */
+        .legal-footer {
+            margin-top: 80px;
+            text-align: center;
+            color: #444;
+            font-size: 13px;
+            border-top: 1px solid #222;
+            padding-top: 40px;
+        }
+
+        .legal-footer a {
+            color: var(--mc-blue);
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container container">
+            <a href="../index.html" class="nav-logo">WILDECHO</a>
+            <div class="menu-links">
+                <a href="../index.html">Головна</a>
+                <a href="../shop.html">Магазин</a>
+                <a href="index.html">Legal</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        
+        <header class="legal-header">
+            <h1 class="vt-font">Торговельні марки</h1>
+            <p class="subtitle vt-font">Поважаємо права власників</p>
+        </header>
+
+        <section class="trademark-section">
+            <p>Ми поважаємо права інтелектуальної власності інших компаній та організацій. Усі торговельні марки, логотипи, назви продуктів і брендів, згадані на цьому сайті, є власністю їхніх законних власників.</p>
+        </section>
+
+        <h2 class="vt-font">Використання марок</h2>
+        <p>Назви, логотипи та інші позначення можуть використовуватися виключно з інформаційною або ідентифікаційною метою. Їх використання не означає наявності партнерства, спонсорства чи офіційного схвалення нашого проєкту власниками відповідних торговельних марок, якщо інше не зазначено окремо.</p>
+
+        <div class="mojang-disclaimer">
+            <h2 class="vt-font" style="margin-top: 0; border: none;">Minecraft та Mojang Studios</h2>
+            <p>Наш магазин пропонує цифрові товари для ігрового сервера Minecraft. <strong>Ми не є офіційним представником Mojang Studios або Microsoft.</strong></p>
+            <p style="margin-bottom: 0;">Minecraft, Mojang Studios, Microsoft та всі пов'язані назви, логотипи й елементи бренду є торговельними марками або зареєстрованими торговельними марками їхніх законних власників.</p>
+        </div>
+
+        <h2 class="vt-font">Використання логотипів</h2>
+        <p>Будь-які логотипи або зображення брендів, які можуть бути присутні на сайті, використовуються лише для ідентифікації відповідних продуктів або сервісів. Вони залишаються власністю своїх правовласників.</p>
+
+        <section class="report-box">
+            <h3 class="vt-font">Повідомлення про порушення</h3>
+            <p>Якщо ви є власником торговельної марки та вважаєте, що будь-які матеріали на нашому сайті порушують ваші права, будь ласка, зв'яжіться з адміністрацією через офіційний Discord. Після отримання обґрунтованого звернення ми оперативно розглянемо ситуацію та внесемо відповідні зміни.</p>
+        </section>
+
+        <h2 class="vt-font">Зміни</h2>
+        <p>Ми можемо періодично оновлювати цю сторінку для відображення актуальної інформації. Рекомендуємо час від часу переглядати її, щоб бути в курсі можливих змін.</p>
+
+        <footer class="legal-footer">
+            <p>© 2026 Wild Echo Project. Усі права захищено. <br> 
+            Повернутися до <a href="index.html">Юридичного центру</a></p>
+        </footer>
+
+    </main>
+
+</body>
+</html>

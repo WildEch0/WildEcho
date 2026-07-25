@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Центр допомоги | Wild Echo Support</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        /* =========================================
+           1. ОСНОВНІ НАЛАШТУВАННЯ (OFFICIAL STYLE)
+           ========================================= */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --mc-blue: #00ccff;
+            --mc-blue-dark: #0055aa;
+            --mc-green: #3c8527;
+            --bg-dark: #000000;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            padding-bottom: 100px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* =========================================
+           2. НАВІГАЦІЯ
+           ========================================= */
+        .navbar {
+            background-color: #111;
+            border-bottom: 3px solid var(--mc-blue);
+            padding: 15px 0;
+            margin-bottom: 60px;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-logo {
+            font-family: Impact, sans-serif;
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .menu-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        /* =========================================
+           3. ТЕКСТОВИЙ КОНТЕНТ (SUPPORT STYLE)
+           ========================================= */
+        
+        h1 {
+            font-family: 'VT323', monospace;
+            font-size: 52px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: var(--mc-blue);
+            text-shadow: 0 0 15px rgba(0, 204, 255, 0.3);
+        }
+
+        .help-intro {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 50px;
+            border-left: 4px solid var(--mc-blue);
+            padding-left: 20px;
+        }
+
+        h2 {
+            font-family: 'VT323', monospace;
+            font-size: 34px;
+            text-transform: uppercase;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            border-bottom: 1px solid #222;
+            padding-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #eeeeee;
+        }
+
+        /* Списки */
+        .mc-list {
+            list-style: none;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 25px;
+            border: 1px solid #222;
+        }
+
+        .mc-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: #ddd;
+        }
+
+        .mc-list li::before {
+            content: '■';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--mc-blue);
+            font-size: 12px;
+        }
+
+        /* Блоки акцентів */
+        .note-box {
+            background: #111;
+            padding: 25px;
+            border: 1px dashed #444;
+            margin: 30px 0;
+        }
+
+        .note-box strong {
+            color: var(--mc-blue);
+        }
+
+        /* Кнопка зв'язку */
+        .contact-section {
+            text-align: center;
+            margin-top: 80px;
+            padding: 50px;
+            background: radial-gradient(circle, #001a33 0%, #000 100%);
+            border: 2px solid #333;
+        }
+
+        .btn-discord-support {
+            display: inline-block;
+            background: #5865F2; /* Колір Discord */
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 40px;
+            font-weight: 900;
+            font-size: 16px;
+            text-transform: uppercase;
+            border-bottom: 5px solid #3a45c3;
+            transition: 0.2s;
+            margin-top: 20px;
+        }
+
+        .btn-discord-support:hover {
+            background: #6a77f5;
+            transform: translateY(-3px);
+        }
+
+        .footer-thanks {
+            margin-top: 60px;
+            text-align: center;
+            font-family: 'VT323', monospace;
+            font-size: 20px;
+            color: #555;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">WILDECHO</a>
+            <div class="menu-links">
+                <a href="../index.html">Головна</a>
+                <a href="../shop.html">Магазин</a>
+                <a href="index.html">Legal</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        
+        <h1 class="vt-font">Центр допомоги</h1>
+        
+        <p class="help-intro">Вітаємо у Центрі допомоги Wild Echo! Тут ви можете знайти інформацію про покупки, оплату, привілеї та отримати підтримку у разі виникнення будь-яких питань.</p>
+
+        <h2 class="vt-font">Чим ми можемо допомогти?</h2>
+        <p>Наша команда підтримки допоможе вам у таких питаннях:</p>
+        <ul class="mc-list">
+            <li>Проблеми з оплатою або оформленням замовлення.</li>
+            <li>Покупка не надійшла на акаунт.</li>
+            <li>Помилки під час активації привілеї.</li>
+            <li>Питання щодо подарункових сертифікатів.</li>
+            <li>Допомога з роботою магазину.</li>
+            <li>Повідомлення про технічні помилки або баги.</li>
+            <li>Загальні питання щодо сервера та його можливостей.</li>
+        </ul>
+
+        <h2 class="vt-font">Перед зверненням</h2>
+        <p>Щоб ми могли швидше допомогти, рекомендуємо підготувати:</p>
+        <ul class="mc-list">
+            <li>ваш нікнейм у Minecraft;</li>
+            <li>номер або підтвердження замовлення (якщо є);</li>
+            <li>короткий опис проблеми;</li>
+            <li>за можливості — скріншоти або відео, які демонструють проблему.</li>
+        </ul>
+
+        <h2 class="vt-font">Час відповіді</h2>
+        <div class="note-box">
+            <p>Ми намагаємося відповідати на всі звернення якомога швидше. Зазвичай відповідь надходить протягом <strong>24 годин</strong>, однак у періоди високого навантаження це може зайняти трохи більше часу.</p>
+        </div>
+
+        <h2 class="vt-font">Що варто перевірити самостійно</h2>
+        <p>Перед створенням звернення рекомендуємо:</p>
+        <ul class="mc-list">
+            <li>переконатися, що ви правильно ввели нікнейм;</li>
+            <li>оновити сторінку магазину;</li>
+            <li>перезайти на сервер;</li>
+            <li>перевірити, чи була оплата успішною;</li>
+            <li>переглянути сторінку <a href="faq.html" style="color:var(--mc-blue);">FAQ</a>, де вже можуть бути відповіді на ваше запитання.</li>
+        </ul>
+
+        <h2 class="vt-font">Поважне спілкування</h2>
+        <p>Ми просимо всіх користувачів дотримуватися ввічливого спілкування. Образи, погрози або нецензурна лексика не допоможуть пришвидшити розгляд звернення.</p>
+
+        <section class="contact-section">
+            <h2 class="vt-font" style="margin-top: 0; border: none;">Зв'язок із підтримкою</h2>
+            <p>Якщо вам потрібна допомога, скористайтеся офіційним Discord-сервером. Наша команда модерації готова допомогти вам у реальному часі.</p>
+            <a href="https://discord.gg/nBhVTp8xD9" class="btn-discord-support">Створити тікет у Discord</a>
+        </section>
+
+        <p class="footer-thanks">Дякуємо, що граєте на Wild Echo!</p>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Про нас | WildEcho Network</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* БАЗОВІ СТИЛІ */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* НАВБАР */
+        .navbar {
+            background-color: #1a1a1a;
+            border-bottom: 3px solid #3c8527;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .logo-img { height: 40px; }
+        .menu-links { display: flex; gap: 25px; }
+        .menu-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+        .menu-links a:hover { color: #3c8527; }
+        
+        .login-btn {
+            background-color: #3c8527;
+            color: #fff;
+            padding: 10px 25px;
+            text-decoration: none;
+            font-weight: 900;
+            transition: 0.3s;
+        }
+
+        /* HERO SECTION */
+        .about-hero {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('assets/img/background-about-us.jpg') center/cover;
+        }
+        .about-hero h1 {
+            font-family: 'Impact', sans-serif;
+            font-size: 80px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        /* КОНТЕНТ */
+        .about-container {
+            max-width: 1000px;
+            margin: -60px auto 60px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .info-section {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            padding: 60px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .tag {
+            background: #fff;
+            color: #000;
+            padding: 4px 15px;
+            font-weight: 900;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        h2 {
+            font-family: 'Impact', sans-serif;
+            font-size: 42px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        /* ГРИД ОСОБЛИВОСТЕЙ */
+        .features-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .feature-box {
+            padding: 30px;
+            background: #222;
+            border-left: 4px solid #3c8527;
+        }
+        .feature-box h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        /* КОМАНДА */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .team-card {
+            text-align: center;
+            background: #111;
+            padding: 20px;
+            border: 1px solid #222;
+        }
+        .team-card img {
+            width: 80px;
+            height: 80px;
+            image-rendering: pixelated;
+            margin-bottom: 15px;
+        }
+        .team-card .name { font-weight: 900; font-size: 18px; display: block; }
+        .team-card .role { color: #3c8527; font-size: 12px; font-weight: bold; text-transform: uppercase; }
+
+        /* ЗАКЛИК ДО ДІЇ */
+        .cta-box {
+            text-align: center;
+            padding: 60px;
+            background: #3c8527;
+            margin-bottom: 60px;
+        }
+        .cta-box h3 { font-family: Impact; font-size: 36px; margin-bottom: 20px; }
+        .cta-btn {
+            display: inline-block;
+            background: #fff;
+            color: #000;
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 18px;
+            transition: 0.2s;
+        }
+        .cta-btn:hover { background: #eee; transform: scale(1.05); }
+
+        footer {
+            background: #000;
+            padding: 40px;
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- НАВІГАЦІЯ -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/index.html"><img src="/assets/img/preview-image.jpg" class="logo-img" alt="WildEcho"></a>
+            <div class="menu-links">
+                <a href="/index.html">Головна</a>
+                <a href="/shop.html">Магазин</a>
+                <a href="/rules.html">Правила</a>
+                <a href="/about-us.html" style="color: #3c8527;">Про нас</a>
+                <a href="/wiki.html">Wiki</a>
+                <a href="/all-news.html">Новини</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="about-hero">
+        <h1>ХТО МИ ТАКІ?</h1>
+    </header>
+
+    <!-- ОСНОВНИЙ КОНТЕНТ -->
+    <main class="about-container">
+        
+        <!-- Секція 1: Історія -->
+        <section class="info-section">
+            <span class="tag">Історія проекту</span>
+            <h2>WildEcho — Більше ніж сервер</h2>
+            <p>
+                WildEcho народився з ідеї створити ідеальне середовище для гравців, які цінують атмосферу, глибокий лор та справжнє виживання. Ми почали як маленька група друзів, а сьогодні — це професійно налаштований сервер з унікальними механіками.
+            </p>
+            <p>
+                Наша місія: надати кожному гравцю можливість написати власну історію в нашому світі, де магія переплітається з класичним будівництвом.
+            </p>
+        </section>
+
+        <!-- Секція 2: Технології -->
+        <section class="info-section">
+            <span class="tag">Чому ми?</span>
+            <h2>Наші особливості</h2>
+            <div class="features-row">
+                <div class="feature-box">
+                    <h4>Унікальні системи</h4>
+                    <p>Кастомна системи, які не псують баланс, а доповнює його.</p>
+                </div>
+                <div class="feature-box">
+                    <h4>Стабільність</h4>
+                    <p>Потужне залізо та захист від DDoS забезпечують гру без лагів 24/7.</p>
+                </div>
+                <div class="feature-box">
+                    <h4>Живий Лор</h4>
+                    <p>Світ, що змінюється залежно від дій гравців та регулярних івентів.</p>
+                </div>
+                <div class="feature-box">
+                    <h4>Спільнота</h4>
+                    <p>У нас немає місця токсичності. Тільки дружня атмосфера та адекватна адміністрація.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секція 3: Команда -->
+        <section class="info-section">
+            <span class="tag">Команда</span>
+            <h2>Творці WildEcho</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="/assets/img/dark-photos.jpg" alt="DARKKHALIS">
+                    <span class="name">DARKKHALIS</span>
+                    <span class="role">Верховний Банкомат</span>
+                </div>
+                <div class="team-card">
+                    <img src="/assets/img/rizzell-photos.jpg" alt="Rizzell">
+                    <span class="name">Rizzell</span>
+                    <span class="role">Головний Шпіон Проєкту</span>
+                </div>
+                <div class="team-card">
+                    <img src="/assets/img/neyrix-photos.jpg" alt="_Neyrix_">
+                    <span class="name">_Neyrix_</span>
+                    <span class="role">Директор по «Та воно само якось працює»</span>
+                </div>
+                <div class="team-card">
+                    <img src="/assets/img/mif_wot-photos.jpg" alt="MiF_Wot">
+                    <span class="name">MiF_WoT</span>
+                    <span class="role">Головна шиза серверу<span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Заклик до дії -->
+        <div class="cta-box">
+            <h3>ГОТОВІ РОЗПОЧАТИ ПРИГОДУ?</h3>
+            <a href="/index.html" class="cta-btn">ГРАТИ ЗАРАЗ</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2026 WildEcho. Створено з любов'ю до кубів.</p>
+    </footer>
+
+    <script>
+    </script>
+</body>
+</html>

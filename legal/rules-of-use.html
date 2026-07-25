@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Правила користування | Wild Echo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        /* =========================================
+           1. ОСНОВНІ НАЛАШТУВАННЯ
+           ========================================= */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --mc-green: #3c8527;
+            --mc-green-light: #47a12d;
+            --mc-gray: #aaaaaa;
+            --bg-dark: #000000;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: url('https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/realms/bedrock-bg.png');
+            background-size: 100px;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            padding-bottom: 100px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* =========================================
+           2. НАВІГАЦІЯ
+           ========================================= */
+        .navbar {
+            background-color: #111;
+            border-bottom: 3px solid var(--mc-green);
+            padding: 15px 0;
+            margin-bottom: 60px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: Impact, sans-serif;
+            font-size: 24px;
+            color: #fff !important;
+            text-decoration: none !important;
+        }
+
+        .menu-links a {
+            color: #fff !important;
+            text-decoration: none !important;
+            margin-left: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        /* =========================================
+           3. ТЕКСТОВИЙ КОНТЕНТ (CODE OF CONDUCT STYLE)
+           ========================================= */
+        
+        h1 {
+            font-family: 'VT323', monospace;
+            font-size: 48px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .last-update {
+            font-family: 'VT323', monospace;
+            color: var(--mc-gray);
+            font-size: 18px;
+            margin-bottom: 40px;
+            display: block;
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 16px;
+            color: #ccc;
+            margin-bottom: 50px;
+            text-align: center;
+            border-bottom: 1px solid #333;
+            padding-bottom: 30px;
+        }
+
+        /* Секції правил */
+        .rules-section {
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid #222;
+            padding: 30px;
+            position: relative;
+        }
+
+        h2 {
+            font-family: 'VT323', monospace;
+            font-size: 30px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            color: var(--mc-green);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #eeeeee;
+        }
+
+        /* Списки */
+        .mc-list {
+            list-style: none;
+            margin: 10px 0 0 5px;
+        }
+
+        .mc-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: #ddd;
+        }
+
+        .mc-list li::before {
+            content: '■';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--mc-green);
+            font-size: 12px;
+        }
+
+        /* Посилання всередині тексту */
+        .inline-link {
+            color: var(--mc-green);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid transparent;
+        }
+
+        .inline-link:hover {
+            border-bottom: 1px solid var(--mc-green);
+        }
+
+        /* Секція заборон */
+        .prohibited-box {
+            border-left: 4px solid #ff4444;
+            padding-left: 20px;
+            margin: 20px 0;
+        }
+
+        .prohibited-box strong {
+            color: #ff4444;
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        /* Футер з подякою */
+        .rules-footer {
+            margin-top: 80px;
+            padding: 40px;
+            background: #111;
+            border: 1px solid #333;
+            text-align: center;
+        }
+
+        .footer-message {
+            font-family: 'VT323', monospace;
+            font-size: 22px;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container container">
+            <a href="../index.html" class="nav-logo">WILDECHO</a>
+            <div class="menu-links">
+                <a href="../index.html">Головна</a>
+                <a href="../shop.html">Магазин</a>
+                <a href="index.html">Legal</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        
+        <h1 class="vt-font">Правила користування</h1>
+        <span class="last-update">Останнє оновлення: 25 липня 2026 року</span>
+        
+        <p class="intro-text">Ласкаво просимо до <strong>Wild Echo</strong>! Використовуючи наш сайт, магазин або будь-які пов'язані сервіси, ви автоматично погоджуєтеся з наведеними нижче правилами.</p>
+
+        <!-- 1 -->
+        <section class="rules-section">
+            <h2 class="vt-font">1. Загальні положення</h2>
+            <ul class="mc-list">
+                <li>Використовуйте сайт лише в законних цілях;</li>
+                <li>Не намагайтеся порушити роботу сайту або отримати несанкціонований доступ до його функцій чи даних;</li>
+                <li>Адміністрація залишає за собою право змінювати або оновлювати ці правила без попереднього повідомлення.</li>
+            </ul>
+        </section>
+
+        <!-- 2 -->
+        <section class="rules-section">
+            <h2 class="vt-font">2. Обліковий запис</h2>
+            <p>Під час оформлення покупки ви зобов'язані вказувати правильний нікнейм Minecraft та достовірну інформацію, необхідну для виконання замовлення.</p>
+            <p>Користувач несе повну персональну відповідальність за правильність наданих даних та безпеку свого ігрового акаунта.</p>
+        </section>
+
+        <!-- 3 -->
+        <section class="rules-section">
+            <h2 class="vt-font">3. Покупки</h2>
+            <ul class="mc-list">
+                <li>Усі покупки є добровільною підтримкою проєкту;</li>
+                <li>Замовлення оформлюються виключно через офіційний Discord Wild Echo;</li>
+                <li>Оплата здійснюється через перевірений сервіс Donatello;</li>
+                <li>Після підтвердження оплати адміністрація видає придбаний товар відповідно до його опису в магазині.</li>
+            </ul>
+        </section>
+
+        <!-- 4 -->
+        <section class="rules-section">
+            <h2 class="vt-font">4. Використання придбаних товарів</h2>
+            <p>Усі цифрові товари призначені лише для використання всередині ігрового всесвіту Wild Echo.</p>
+            <div class="prohibited-box">
+                <strong>Суворо забороняється:</strong>
+                <ul class="mc-list">
+                    <li>передавати, продавати або обмінювати придбані привілеї чи послуги без дозволу адміністрації;</li>
+                    <li>використовувати технічні помилки або вразливості для отримання нечесних переваг;</li>
+                    <li>видавати себе за представників адміністрації або інших користувачів.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 5 -->
+        <section class="rules-section">
+            <h2 class="vt-font">5. Повернення коштів</h2>
+            <p>Умови повернення коштів детально описані на окремій сторінці <a href="refunds.html" class="inline-link">«Політика повернення коштів»</a>. Перед здійсненням покупки ми наполегливо рекомендуємо уважно ознайомитися з нею.</p>
+        </section>
+
+        <!-- 6 -->
+        <section class="rules-section">
+            <h2 class="vt-font">6. Інтелектуальна власність</h2>
+            <p>Усі матеріали, розміщені на сайті, включаючи дизайн, тексти, логотипи та ігровий контент, належать Wild Echo або використовуються на законних підставах.</p>
+            <p>Будь-яке копіювання чи поширення матеріалів без письмового дозволу адміністрації заборонено.</p>
+        </section>
+
+        <!-- 7 -->
+        <section class="rules-section">
+            <h2 class="vt-font">7. Обмеження відповідальності</h2>
+            <p>Адміністрація не несе відповідальності за тимчасову недоступність сайту чи сервера через технічні роботи, а також за затримки сторонніх платіжних сервісів.</p>
+        </section>
+
+        <!-- 8 -->
+        <section class="rules-section">
+            <h2 class="vt-font">8. Право на зміни</h2>
+            <p>Ми залишаємо за собою право змінювати, оновлювати або припиняти роботу окремих функцій сайту чи магазину без попереднього повідомлення для розвитку проєкту або забезпечення його безпеки.</p>
+        </section>
+
+        <!-- 9 -->
+        <section class="rules-section" style="border-bottom: 4px solid var(--mc-green);">
+            <h2 class="vt-font">9. Зв'язок з адміністрацією</h2>
+            <p>Якщо у вас виникли питання щодо роботи сайту, магазину або цих правил, звертайтеся до адміністрації через наш офіційний <a href="https://discord.gg/nBhVTp8xD9" class="inline-link">Discord-сервер</a>.</p>
+        </section>
+
+        <div class="rules-footer">
+            <p class="footer-message">Дякуємо, що є частиною спільноти Wild Echo!</p>
+            <p style="color: #666; font-size: 13px;">Дотримання цих правил допомагає підтримувати чесну, безпечну та комфортну атмосферу для всіх гравців.</p>
+        </div>
+
+    </main>
+
+</body>
+</html>

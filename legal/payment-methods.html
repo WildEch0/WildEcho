@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Способи оплати | Wild Echo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        /* =========================================
+           1. ОСНОВНІ НАЛАШТУВАННЯ
+           ========================================= */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --mc-green: #3c8527;
+            --mc-gold: #ffcd00;
+            --bg-dark: #000000;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            padding-bottom: 100px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* =========================================
+           2. НАВІГАЦІЯ
+           ========================================= */
+        .navbar {
+            background-color: #111;
+            border-bottom: 2px solid #333;
+            padding: 20px 0;
+            margin-bottom: 60px;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-logo {
+            font-family: Impact, sans-serif;
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .menu-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        /* =========================================
+           3. ТЕКСТОВИЙ КОНТЕНТ
+           ========================================= */
+        
+        h1 {
+            font-family: 'VT323', monospace;
+            font-size: 48px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-family: 'VT323', monospace;
+            font-size: 32px;
+            text-transform: uppercase;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: var(--mc-gold);
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #eeeeee;
+        }
+
+        /* Процес оплати (Список з цифрами) */
+        .payment-steps {
+            list-style: none;
+            counter-reset: step-counter;
+            margin-bottom: 40px;
+            background: #0a0a0a;
+            border: 1px solid #222;
+            padding: 20px;
+        }
+
+        .payment-steps li {
+            counter-increment: step-counter;
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .payment-steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--mc-green);
+            color: #000;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-family: 'VT323', monospace;
+            font-size: 20px;
+        }
+
+        /* Блок Donatello */
+        .donatello-box {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+            border: 2px solid #555;
+            padding: 30px;
+            margin: 40px 0;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .donatello-logo {
+            font-family: 'VT323', monospace;
+            font-size: 40px;
+            color: var(--mc-gold);
+            border: 2px solid var(--mc-gold);
+            padding: 10px 20px;
+            text-transform: uppercase;
+        }
+
+        /* Список безпеки */
+        .mc-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .mc-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: #ddd;
+        }
+
+        .mc-list li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            color: var(--mc-green);
+            font-weight: bold;
+        }
+
+        /* Блок проблем */
+        .issue-box {
+            background: #111;
+            padding: 25px;
+            border-left: 4px solid #ff4444;
+            margin: 40px 0;
+        }
+
+        /* Discord CTA */
+        .discord-cta {
+            text-align: center;
+            padding: 50px;
+            background: #111;
+            border: 2px solid #333;
+            margin-top: 60px;
+        }
+
+        .btn-discord {
+            display: inline-block;
+            background: #5865F2;
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 40px;
+            font-weight: 900;
+            font-size: 16px;
+            text-transform: uppercase;
+            border-bottom: 5px solid #3a45c3;
+            transition: 0.2s;
+            margin-top: 20px;
+        }
+
+        .btn-discord:hover {
+            background: #6a77f5;
+            transform: translateY(-3px);
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">WILDECHO</a>
+            <div class="menu-links">
+                <a href="../index.html">Головна</a>
+                <a href="../shop.html">Магазин</a>
+                <a href="index.html">Legal</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        
+        <h1 class="vt-font">Способи оплати</h1>
+        
+        <p>Ми зробили процес оплати максимально простим та безпечним. Усі покупки на <strong>Wild Echo</strong> здійснюються через адміністрацію проєкту та оплачуються за допомогою сервісу <strong>Donatello</strong>.</p>
+
+        <h2 class="vt-font">Як відбувається оплата?</h2>
+        <ol class="payment-steps">
+            <li>Оберіть товар, який бажаєте придбати у нашому каталозі.</li>
+            <li>Перейдіть до нашого офіційного Discord-сервера.</li>
+            <li>Створіть тікет та повідомте адміністрації, який товар ви хочете купити.</li>
+            <li>Адміністратор перевірить ваше звернення та надасть посилання для оплати через Donatello.</li>
+            <li>Після успішної оплати ваше замовлення буде підтверджено, а товар активовано.</li>
+        </ol>
+
+        <h2 class="vt-font">Donatello</h2>
+        <div class="donatello-box">
+            <div class="donatello-logo">Donatello</div>
+            <div>
+                <p style="margin-bottom: 0;">Для приймання платежів ми використовуємо сервіс Donatello, який забезпечує швидку та безпечну оплату.</p>
+                <p style="margin-top: 10px; color: #888; font-size: 14px;">Через Donatello можуть бути доступні різні способи оплати залежно від вашої країни та платіжної системи.</p>
+            </div>
+        </div>
+
+        <h2 class="vt-font">Безпека платежів</h2>
+        <ul class="mc-list">
+            <li>Ми не зберігаємо реквізити вашіх банківських карток;</li>
+            <li>Усі платежі обробляються платіжним сервісом Donatello;</li>
+            <li>Передача даних здійснюється через захищене зашифроване з'єднання.</li>
+        </ul>
+
+        <h2 class="vt-font">Підтвердження оплати</h2>
+        <p>Після успішної оплати адміністрація підтвердить отримання платежу та активує ваше замовлення. Зазвичай це займає лише кілька хвилин.</p>
+
+        <div class="issue-box">
+            <h3 class="vt-font" style="color: #ff4444; font-size: 24px; margin-bottom: 10px;">Якщо виникла проблема</h3>
+            <p>Якщо платіж не пройшов або товар не був виданий протягом 15 хвилин:</p>
+            <ul class="mc-list" style="margin-bottom: 0;">
+                <li>не закривайте поточний тікет у Discord;</li>
+                <li>повідомте адміністратора про ситуацію;</li>
+                <li>за можливості надішліть скріншот чека або підтвердження оплати.</li>
+            </ul>
+        </div>
+
+        <section class="discord-cta">
+            <h2 class="vt-font" style="margin-top: 0; color: #fff;">Маєте запитання?</h2>
+            <p>Якщо у вас виникли будь-які питання щодо оплати або оформлення замовлення, зверніться до адміністрації.</p>
+            <a href="https://discord.gg/nBhVTp8xD9" class="btn-discord">Створити тікет в Discord</a>
+        </section>
+
+    </main>
+
+</body>
+</html>

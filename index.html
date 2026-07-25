@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>WildEcho | Home</title>
+            <meta name="description" content="Приєднуйся до нашого унікального Minecraft сервера! Виживання, економіка, клани та крута спільнота чекають на тебе.">
+            <meta name="keywords" content="Minecraft, сервер, майнкрафт, виживання, грати в майнкрафт, wildecho, WildEcho">
+            <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+            <link rel="manifest" href="/site.webmanifest">
+            <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+            <meta property="og:title" content="Wild Echo">
+            <meta property="og:description" content="Сервер з лором, кастомними предметами та багато чого цікавого.">
+            <meta property="og:image" content="img/preview-image.jpg">
+            <meta property="og:url" content="https://">
+            <meta name="theme-color" content="#55FF55">
+            <link rel="stylesheet" href="css/style.css">
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+            <style>
+                @font-face {
+                    font-family: 'Minecraft';
+                    src: url('../fonts/Mojangles.ttf') format('truetype');
+                }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Montserrat', sans-serif; background: #000; color: white; }
+
+/* Хедер та Фон */
+.main-header {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/img/bg-header.jpg') center/cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Навігація */
+.navbar {
+    position: fixed;
+    top: 0; width: 100%; height: 80px;
+    background: #111;
+    border-bottom: 3px solid #3c8527; /* Зелений колір майну */
+    z-index: 2000;
+}
+
+.nav-container {
+    max-width: 1400px; margin: 0 auto; height: 100%;
+    display: flex; justify-content: space-between; align-items: center; padding: 0 20px;
+}
+
+.nav-left, .menu-links { display: flex; align-items: center; gap: 30px; }
+.logo-img { height: 40px; }
+
+.menu-links a, .panel-trigger {
+    color: #fff; text-decoration: none; font-weight: 700; font-size: 14px;
+    background: none; border: none; cursor: pointer; text-transform: uppercase;
+    transition: 0.2s;
+}
+
+.menu-links a:hover, .panel-trigger:hover { color: #3c8527; }
+
+.nav-right { display: flex; align-items: center; gap: 20px; }
+
+.search-btn { background: none; border: none; cursor: pointer; padding: 10px; }
+
+.login-btn {
+    background: #3c8527; color: white; padding: 12px 25px;
+    text-decoration: none; font-weight: 800; border-radius: 2px;
+}
+
+/* ПАНЕЛІ (Пошук/Магазин) */
+.mega-panel {
+    position: fixed;
+    top: 80px; left: 0; width: 100%; height: 0;
+    background: #181818;
+    z-index: 1900;
+    overflow: hidden;
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mega-panel.active { height: 550px; border-bottom: 4px solid #3c8527; }
+
+.panel-wrapper { max-width: 1100px; margin: 0 auto; padding: 40px 20px; position: relative; }
+
+.close-panel {
+    position: absolute; right: 20px; top: 20px;
+    background: none; border: none; color: white; font-size: 24px; cursor: pointer;
+}
+
+/* Пошук */
+.panel-header { font-size: 12px; color: #888; margin-bottom: 10px; display: block; }
+.search-box input {
+    width: 100%; background: none; border: none; border-bottom: 2px solid #444;
+    color: white; font-size: 32px; padding: 10px 0; outline: none; margin-bottom: 40px;
+}
+.search-box input:focus { border-color: #3c8527; }
+
+/* Магазин Лейаут */
+.shop-layout { display: flex; gap: 40px; height: 100%; }
+.shop-sidebar { width: 250px; display: flex; flex-direction: column; border-right: 1px solid #333; }
+.side-btn {
+    background: none; border: none; color: #888; text-align: left;
+    padding: 15px; font-size: 18px; font-weight: 700; cursor: pointer;
+}
+.side-btn.active { color: white; border-left: 4px solid #3c8527; background: #222; }
+
+/* Сітки */
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.grid-item, .shop-card { text-decoration: none; color: white; }
+.grid-item img, .shop-card img { 
+    width: 100%; border: 3px solid #333; transition: 0.3s; 
+}
+.grid-item:hover img, .shop-card:hover img { border-color: #3c8527; transform: translateY(-5px); }
+
+.section-label { margin-bottom: 15px; color: #aaa; font-weight: bold; }
+
+/* Центр хедера */
+.header-center { text-align: center; }
+.header-center h1 { font-size: 70px; letter-spacing: 5px; text-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+/* Сітка товарів - тепер вона чітко 3 колонки, а зайві падають вниз рівно */
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Рівно 3 колонки */
+    gap: 20px;
+    align-items: start;
+}
+
+/* Приховуємо неактивні категорії */
+.category-content {
+    display: none;
+}
+
+.category-content.active {
+    display: block;
+}
+
+/* Стиль карток, щоб вони були однакової висоти */
+.shop-card {
+    background: rgba(255,255,255,0.03);
+    padding: 10px;
+    border: 1px solid #333;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.shop-card img {
+    width: 100%;
+    aspect-ratio: 16/9; /* Всі картинки будуть одного формату */
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.shop-card h4 {
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.shop-card p {
+    font-size: 13px;
+    color: #aaa;
+}
+
+/* Активна кнопка в боковому меню */
+.side-btn {
+    width: 100%;
+    transition: all 0.2s;
+    border-left: 4px solid transparent;
+}
+
+.side-btn.active {
+    background: #252525;
+    color: #fff;
+    border-left: 4px solid #3c8527;
+}
+
+.side-btn:hover:not(.active) {
+    background: #1e1e1e;
+    padding-left: 20px;
+}
+
+/* ВЕЛИКА КНОПКА ПО ЦЕНТРУ */
+.main-shop-btn {
+    margin-top: 30px;
+    padding: 18px 45px;
+    background: #3c8527; /* Майнкрафт зелений */
+    color: white;
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    border: none;
+    border-bottom: 4px solid #2a5d1a; /* Тінь кнопки */
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.main-shop-btn:hover {
+    background: #47a02e;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.main-shop-btn:active {
+    transform: translateY(1px);
+    border-bottom: 2px solid #2a5d1a;
+}
+
+/* КНОПКИ НА КАРТКАХ ТОВАРІВ */
+.card-body {
+    padding: 15px 5px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.buy-btn {
+    margin-top: auto; /* Притискає кнопку до низу картки */
+    background: #3c8527;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 2px;
+    transition: 0.2s;
+}
+
+.buy-btn:hover {
+    background: #47a02e;
+    letter-spacing: 1px; /* Ефект при наведенні */
+}
+
+/* ФІКС: щоб картки в сітці були однакової висоти і кнопки не "стрибали" */
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    align-items: stretch; /* Розтягує картки по висоті ряду */
+}
+
+.shop-card {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255,255,255,0.05);
+    padding: 10px;
+    border: 1px solid #333;
+}
+
+/* Стиль для картинок, на які можна натиснути */
+.shop-card img {
+    cursor: zoom-in; /* Змінює курсор на лупу */
+    transition: 0.3s;
+}
+
+.shop-card img:hover {
+    opacity: 0.8;
+}
+
+/* ФОН МОДАЛЬНОГО ВІКНА */
+.modal {
+    display: none; /* Приховано за замовчуванням */
+    position: fixed;
+    z-index: 3000; /* Вище за все інше */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9); /* Чорний напівпрозорий фон */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* САМЕ ФОТО */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+    border: 4px solid #3c8527; /* Зелена рамка в стилі майну */
+    box-shadow: 0 0 30px rgba(60, 133, 39, 0.5);
+    animation: zoom 0.3s; /* Анімація появи */
+}
+
+@keyframes zoom {
+    from {transform: scale(0.5); opacity: 0;} 
+    to {transform: scale(1); opacity: 1;}
+}
+
+/* КНОПКА ЗАКРИТТЯ */
+.close-viewer {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: #f1f1f1;
+    font-size: 60px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-viewer:hover {
+    color: #3c8527;
+}
+
+/* ПІДПИС ПІД ФОТО */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+        .mega-panel { display: block; visibility: hidden; height: 0; opacity: 0; pointer-events: none; }
+        .mega-panel.active { visibility: visible; height: 550px; opacity: 1; pointer-events: all; }
+        .category-content { display: none; }
+        .category-content.active { display: block; }
+
+        /* ФУТЕР - ЗАГАЛЬНІ СТИЛІ */
+.site-footer {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 60px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ВЕРХНЯ ЧАСТИНА */
+.footer-top {
+    padding-bottom: 60px;
+}
+
+.brand-logos {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.footer-logo {
+    height: 60px;
+}
+
+.footer-logo.xbox {
+    height: 45px;
+    margin-top: 10px;
+}
+
+.brand-info p {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.brand-links a {
+    color: #3c8527;
+    text-decoration: none;
+    font-size: 13px;
+    margin-right: 15px;
+}
+
+.brand-links a:hover { text-decoration: underline; }
+
+/* Колонки */
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.footer-col a {
+    display: block;
+    color: #3c8527;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 10px;
+    transition: 0.2s;
+}
+
+.footer-col a:hover { color: #fff; text-decoration: underline; }
+
+.footer-rating img {
+    height: 120px;
+}
+
+/* НИЖНЯ ПАНЕЛЬ */
+.footer-bottom {
+    background-color: #1a1a1a;
+    padding: 25px 0;
+    border-top: 1px solid #333;
+}
+
+.footer-bottom .footer-container {
+    align-items: center;
+}
+
+.lang-selector {
+    background: none;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.footer-legal a, .footer-legal span {
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.footer-legal a:hover { text-decoration: underline; }
+
+.footer-ms-logo img {
+    height: 25px;
+}
+
+/* Адаптивність для мобільних */
+@media (max-width: 900px) {
+    .footer-container { flex-direction: column; text-align: center; gap: 40px; }
+    .footer-links { grid-template-columns: 1fr 1fr; }
+    .brand-logos { justify-content: center; }
+}
+
+/* ЗАГАЛЬНИЙ КОНТЕЙНЕР */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.section-title { text-align: center; font-size: 36px; margin-bottom: 50px; font-weight: 900; }
+
+/* IP КАРТКА */
+.server-ip-section { margin-top: -50px; position: relative; z-index: 10; }
+.ip-card {
+    background: #1a1a1a; border: 2px solid #3c8527; padding: 30px;
+    display: flex; justify-content: space-between; align-items: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+.ip-label { color: #888; font-size: 14px; text-transform: uppercase; }
+#server-ip { color: #fff; font-size: 28px; letter-spacing: 2px; }
+
+.copy-ip-btn {
+    background: #3c8527; color: #fff; border: none; padding: 15px 30px;
+    font-weight: 800; cursor: pointer; transition: 0.2s; margin-bottom: 10px;
+}
+.copy-ip-btn:hover { background: #47a02e; transform: scale(1.05); }
+
+.online-status { display: flex; align-items: center; gap: 10px; color: #aaa; }
+.pulse { width: 10px; height: 10px; background: #3c8527; border-radius: 50%; animation: pulse 1.5s infinite; }
+
+/* ПЕРЕВАГИ */
+.features-section { padding: 100px 0; background: #0c0c0c; }
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.feature-card { background: #151515; padding: 40px; text-align: center; border: 1px solid #222; }
+.f-icon { font-size: 50px; margin-bottom: 20px; }
+.feature-card h3 { margin-bottom: 15px; color: #3c8527; }
+
+/* НОВИНИ */
+.news-section { padding: 100px 0; background: #000; }
+.news-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.news-item { background: #151515; display: flex; border: 1px solid #222; }
+.news-img { width: 40%; background-size: cover; background-position: center; min-height: 200px; }
+.news-text { padding: 30px; width: 60%; }
+.date { color: #3c8527; font-size: 12px; font-weight: bold; }
+.read-more { color: #fff; text-decoration: underline; font-size: 14px; display: inline-block; margin-top: 15px; }
+
+/* DISCORD BANNER */
+.discord-section { padding-bottom: 100px; background: #000; }
+.discord-banner {
+    background: linear-gradient(90deg, #5865F2, #4752C4);
+    padding: 60px; display: flex; justify-content: space-between; align-items: center;
+    border-radius: 4px;
+}
+.discord-btn {
+    background: #fff; color: #5865F2; padding: 20px 40px;
+    text-decoration: none; font-weight: 900; transition: 0.3s;
+}
+.discord-btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+@keyframes pulse { 0% { opacity: 0.4; } 50% { opacity: 1; } 100% { opacity: 0.4; } }
+
+/* ВІДЕО НА ВЕСЬ ЕКРАН */
+.main-header {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center; /* Центруємо картку по вертикалі */
+    padding-left: 10%;   /* Відступ зліва як на малюнку */
+    overflow: hidden;
+}
+
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -2;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Легке затемнення відео */
+    z-index: -1;
+}
+
+/* КАРТКА З МАЛЮНКУ */
+.hero-card {
+    background: rgba(255, 255, 255, 0.9); /* Білий, трохи прозорий */
+    border: 5px solid #000;              /* Товста чорна рамка */
+    border-radius: 60px;                 /* Сильне заокруглення */
+    padding: 40px 60px;
+    max-width: 600px;
+    box-shadow: 15px 15px 0px rgba(0,0,0,0.2); /* Тінь */
+}
+
+.hero-card h1 {
+    font-family: 'Impact', sans-serif; /* Потужний шрифт як на фото */
+    font-size: 64px;
+    color: #000;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.hero-card p {
+    font-size: 24px;
+    color: #000;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+.more-link {
+    display: block;
+    text-align: right;
+    font-family: 'Impact', sans-serif;
+    font-size: 28px;
+    color: #000;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.more-link:hover {
+    transform: scale(1.1);
+    color: #3c8527;
+}
+
+/* КНОПКА ДАЛІ В КУТКУ */
+.scroll-next {
+    position: absolute;
+    bottom: 40px;
+    right: 50px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Impact', sans-serif;
+    font-size: 32px;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.scroll-next:hover {
+    transform: translateY(10px);
+    color: #3c8527;
+}
+
+.scroll-next svg {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
+
+/* СЕКЦІЯ НОВИН */
+.mc-news-section {
+    background-color: #262626; /* Темно-сірий як на фото */
+    padding: 80px 0;
+    color: #fff;
+}
+
+.news-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.mc-title {
+    font-family: 'Impact', sans-serif; /* Або піксельний шрифт */
+    font-size: 50px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.view-all-link {
+    color: #47a02e;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.view-all-link:hover {
+    text-decoration: underline;
+}
+
+/* СІТКА */
+.mc-news-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Тільки 2 новини як ти просив */
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* КАРТКА */
+.mc-news-card {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.mc-news-card:hover .card-image {
+    transform: scale(1.05);
+}
+
+.mc-news-card:hover {
+    border-color: #fff;
+}
+
+/* ТЕКСТ ТА ТЕГИ НА КАРТЦІ */
+.card-overlay {
+    background: rgba(0, 0, 0, 0.7); /* Напівпрозорий чорний */
+    padding: 20px;
+    width: 100%;
+}
+
+.category-tag {
+    background: #fff;
+    color: #000;
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.card-title {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+}
+
+/* Прибираємо синій колір та підкреслення у всіх посилань всередині карток */
+.mc-news-card a {
+    text-decoration: none; /* Прибрати лінію під текстом */
+    color: inherit;        /* Колір буде братися від батьківського елемента */
+    display: block;
+    height: 100%;
+}
+
+/* Налаштування заголовка */
+.card-title {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0;
+    color: #ffffff; /* Текст стає чисто білим */
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif; /* Використовуємо твій основний шрифт */
+}
+
+/* Ефект при наведенні на всю картку */
+.mc-news-card:hover .card-title {
+    text-decoration: underline; /* Лінія з'явиться тільки при наведенні, як в оригіналі */
+    color: #ffffff;
+}
+
+/* Стиль білої плашки (MARKETPLACE / NEWS) */
+.category-tag {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.collection-section {
+    background-color: #000;
+    padding: 100px 0;
+    color: #fff;
+    overflow: hidden;
+}
+
+.collection-wrapper {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+/* Ліва колонка */
+.collection-intro {
+    flex: 0 0 350px;
+}
+
+.collection-desc {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ccc;
+    margin: 20px 0;
+}
+
+.view-all-link.green {
+    color: #47a02e;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 40px;
+}
+
+/* Стрілки */
+.slider-arrows {
+    display: flex;
+    gap: 15px;
+}
+
+.arrow-btn {
+    background: none;
+    border: 2px solid #555;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.arrow-btn:hover {
+    border-color: #fff;
+    background: #222;
+}
+
+/* Картки */
+.collection-cards {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 20px;
+}
+
+/* Приховуємо скроллбар */
+.collection-cards::-webkit-scrollbar { display: none; }
+
+.col-card {
+    flex: 0 0 280px;
+    background: #1a1a1a;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.col-card:hover {
+    transform: translateY(-5px);
+}
+
+.col-img {
+    width: 100%;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+}
+
+.col-info {
+    padding: 20px;
+}
+
+.col-tag {
+    font-size: 12px;
+    font-weight: 900;
+    color: #888;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.col-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.col-footer h3 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.download-icon {
+    font-size: 24px;
+    color: #fff;
+}
+
+/* Адаптивність */
+@media (max-width: 1000px) {
+    .collection-wrapper { flex-direction: column; }
+    .collection-intro { flex: 1; width: 100%; }
+}
+
+/* Основний контейнер (стиль як на 2 фото) */
+.server-join-section {
+    background-color: #000;
+    padding: 60px 20px;
+}
+
+.mc-newsletter-box {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #1a1a1a;
+    padding: 50px;
+    border: 1px solid #333;
+    color: #fff;
+}
+
+.mc-newsletter-title {
+    font-family: 'Impact', sans-serif;
+    font-size: 42px;
+    text-align: center;
+    margin-bottom: 35px;
+    letter-spacing: 2px;
+}
+
+/* Сітка для IP та Версії */
+.mc-server-grid {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.mc-server-item {
+    flex: 1;
+}
+
+.mc-label {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+/* Стиль поля як на другому фото */
+.mc-input-display {
+    background-color: #111;
+    border: 1px solid #555;
+    padding: 14px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.mc-server-note {
+    font-size: 14px;
+    color: #aaa;
+    margin-top: 10px;
+}
+
+.mc-server-note b { color: #fff; }
+
+.form-divider {
+    border: none;
+    border-top: 1px solid #333;
+    margin: 30px 0;
+}
+
+/* Нижня частина та кнопка */
+.form-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.legal-section {
+    max-width: 60%;
+    font-size: 13px;
+    color: #888;
+}
+
+.mc-submit-btn {
+    background-color: #fff;
+    color: #888; /* Спочатку сірий як на фото */
+    border: none;
+    padding: 14px 40px;
+    font-weight: 900;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: 0.2s;
+}
+
+.mc-submit-btn:hover {
+    background-color: #eee;
+    color: #000;
+}
+
+.mc-submit-btn .arrow {
+    font-size: 24px;
+    line-height: 1;
+}
+
+@media (max-width: 768px) {
+    .mc-server-grid, .form-bottom { flex-direction: column; }
+    .mc-submit-btn { width: 100%; justify-content: center; margin-top: 20px; }
+    .legal-section { max-width: 100%; }
+}
+
+.mc-social-section {
+    background-color: #000;
+    padding: 80px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.mc-social-grid {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 30px;
+    align-items: stretch;
+}
+
+/* КНОПКИ СОЦМЕРЕЖ */
+.social-links-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.mc-social-link {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    color: #fff;
+    text-decoration: none;
+    padding: 20px 30px;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.2s ease;
+}
+
+.mc-social-link:hover {
+    background-color: #3c8527; /* Зелений при наведенні */
+    border-color: #47a02e;
+    transform: translateX(10px);
+}
+
+.social-icon {
+    font-size: 24px;
+}
+
+/* КАРТКА СТАТУСУ */
+.mc-status-card {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mc-status-title {
+    font-family: 'Impact', sans-serif;
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.mc-status-text {
+    font-size: 18px;
+    color: #aaa;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* КНОПКА "ЧИТАТИ НОВИНИ" (стиль Minecraft.net) */
+.mc-news-btn {
+    background-color: #fff;
+    color: #888;
+    text-decoration: none;
+    padding: 15px 40px;
+    font-weight: 900;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    align-self: flex-start;
+    transition: 0.2s;
+}
+
+.mc-news-btn:hover {
+    background-color: #eee;
+    color: #000;
+}
+
+.mc-news-btn .arrow {
+    font-size: 24px;
+    line-height: 1;
+}
+
+/* АДАПТИВНІСТЬ */
+@media (max-width: 900px) {
+    .mc-social-grid { grid-template-columns: 1fr; }
+    .mc-status-card { padding: 30px; }
+    .mc-social-link { justify-content: center; }
+}
+
+/* КНОПКА-ТРАНСФОРМЕР У НАВБАРІ */
+.auth-wrapper-nav {
+    display: inline-block;
+    position: relative;
+}
+
+.profile-nav-btn {
+    min-width: 120px;
+    text-align: center;
+    transition: 0.3s;
+    background-color: #3c8527 !important; /* Зелений за замовчуванням */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-nav-btn .logout-text {
+    display: none;
+}
+
+.profile-nav-btn:hover {
+    background-color: #ff4d4d !important; /* Червоний при наведенні */
+}
+
+.profile-nav-btn:hover .profile-text {
+    display: none;
+}
+
+.profile-nav-btn:hover .logout-text {
+    display: block;
+}
+            </style>
+        </head>
+        <body>
+            <header class="main-header">
+    <!-- ГОЛОВНА НАВІГАЦІЯ -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="/index.html" class="logo-link">
+                    <img src="/assets/img/preview-image.jpg" alt="WildEcho" class="logo-img">
+                </a>
+                <div class="menu-links">
+                    <a href="/index.html" style="color: #3c8527;">Головна</a>
+                    <button class="panel-trigger" onclick="togglePanel('shop-panel')">Магазин ▾</button>
+                    <a href="/rules.html">Правила</a>
+                    <a href="/about-us.html">Про нас</a>
+                    <a href="/wiki.html">Wiki</a>
+                    <a href="/all-news.html">Новини</a>
+                </div>
+            </div>
+
+            <div class="nav-right">
+                <!-- Кнопка ПОШУКУ -->
+                <button class="search-btn" onclick="togglePanel('search-panel')">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ПАНЕЛЬ ПОШУКУ -->
+    <div id="search-panel" class="mega-panel">
+        <div class="panel-wrapper">
+            <div class="panel-header">
+                <span>ПОШУК</span>
+                <button class="close-panel" onclick="closeAllPanels()">✕</button>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Шукати на WildEcho..." autofocus>
+            </div>
+            <div class="panel-grid-section">
+                <p class="section-label">Популярні відкриття</p>
+                <div class="grid-3">
+                    <a href="/shop/shop.html" class="grid-item">
+                        <img src="/assets/img/search-shop.jpg" alt="">
+                        <span>Товари магазину</span>
+                    </a>
+                    <a href="wiki.html" class="grid-item">
+                        <img src="/assets/img/search-wiki.jpg" alt="">
+                        <span>Вікі та Гайди</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ПАНЕЛЬ МАГАЗИНУ -->
+    <<div id="shop-panel" class="mega-panel">
+    <div class="panel-wrapper">
+        <div class="shop-layout">
+            <!-- БІЧНЕ МЕНЮ -->
+            <div class="shop-sidebar">
+                <button class="side-btn active" onclick="switchCategory(event, 'cat-marketplace')">Marketplace</button>
+                <button class="side-btn" onclick="switchCategory(event, 'cat-privileges')">Привілеї</button>
+                <button class="side-btn" onclick="switchCategory(event, 'cat-other')">Інше</button>
+                <button class="side-btn" onclick="switchCategory(event, 'cat-currency')">Валюта</button>
+            </div>
+
+            <div id="image-viewer" class="modal">
+    <span class="close-viewer" onclick="closePreview()">&times;</span>
+    <img class="modal-content" id="full-image">
+    <div id="caption"></div>
+</div>
+
+            <!-- КОНТЕНТ КАТЕГОРІЙ -->
+            <div class="shop-content">
+                <!-- Категорія: Marketplace -->
+                <div id="cat-marketplace" class="category-content active">
+                    <div class="shop-grid">
+                        <div class="shop-card">
+                            <img src="/assets/img/disc-for-shop.jpg" alt="" onclick="openPreview(this)">
+                            <h4>Кастомні платівки</h4>
+                            <p>Унікальна музика для твого регіону</p>
+                            <a href="shop/discs.html" class="buy-btn">ДЕТАЛЬНІШЕ</a>
+                        </div>
+                        <div class="shop-card">
+                            <img src="/assets/img/vanish.jpg" alt="" onclick="openPreview(this)">
+                            <h4>Vanish</h4>
+                            <p>Хто хоче попідглядати?</p>
+                            <a href="/shop/vanish-details.html" class="buy-btn">ДЕТАЛЬНІШЕ</a>
+                        </div>
+                        <div class="shop-card">
+                            <img src="/assets/img/fly.jpg" alt="" onclick="openPreview(this)">
+                            <h4>Fly</h4>
+                            <p>Привілей для кращого пересування</p>
+                            <a href="/shop/fly-details.html" class="buy-btn">ДЕТАЛЬНІШЕ</a>
+                        </div>
+                        <!-- Четверта картка тепер автоматично стане в сітку -->
+                        <div class="shop-card">
+                            <img src="/assets/img/creative.jpg" alt="" onclick="openPreview(this)">
+                            <h4>Creative</h4>
+                            <p>Режим творця для будівництва</p>
+                            <a href="/shop/creative-details.html" class="buy-btn">ДЕТАЛЬНІШЕ</a>
+                        </div>
+                        <div class="shop-card">
+                            <img src="/assets/img/creative.jpg" alt="" onclick="openPreview(this)">
+                            <h4>Timber</h4>
+                            <p>Хто швидше здобуде дерева?</p>
+                            <a href="/shop/timber-details.html" class="buy-btn">ДЕТАЛЬНІШЕ</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Категорія: Привілеї (приклад) -->
+                <div id="cat-privileges" class="category-content">
+                    <div class="shop-grid">
+                        <div class="shop-card">
+                            <img src="/assets/img/vanish.jpg" alt="" onclick="openPreview(this)">
+                            <h4>Vanish</h4>
+                            <p>Хто хоче попідглядати?</p>
+                            <a href="https://discord.com/channels/1438164325901799509/1501566790097047644" class="buy-btn">КУПИТИ</a>
+                        </div>
+                        <div class="shop-card">
+                            <img src="/assets/img/fly.jpg" alt="" onclick="openPreview(this)">
+                            <h4>Fly</h4>
+                            <p>Привілей для кращого пересування</p>
+                            <a href="https://discord.com/channels/1438164325901799509/1501565614311866389" class="buy-btn">КУПИТИ</a>
+                        </div>
+                        <!-- Четверта картка тепер автоматично стане в сітку -->
+                        <div class="shop-card">
+                            <img src="/assets/img/creative.jpg" alt="" onclick="openPreview(this)">
+                            <h4>Creative</h4>
+                            <p>Режим творця для будівництва</p>
+                            <a href="https://discord.com/channels/1438164325901799509/1501566676678873271" class="buy-btn">КУПИТИ</a>
+                        </div>
+                        <div class="shop-card">
+                            <img src="/assets/img/creative.jpg" alt="" onclick="openPreview(this)">
+                            <h4>Timber</h4>
+                            <p>Хто швидше здобуде дерева?</p>
+                            <a href="https://discord.com/channels/1438164325901799509/1501565524721533030" class="buy-btn">КУПИТИ</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="cat-other" class="category-content">
+                    <div class="shop-grid">
+                        <div class="shop-card">
+                            <img src="/assets/img/unban-or-unmute.jpg" alt="" onclick="openPreview(this)">
+                            <h4>Розбан</h4>
+                            <p>Ну це дуже дорого!</p>
+                            <a href="https://discord.com/channels/1438164325901799509/1501565235025154159" class="buy-btn">КУПИТИ</a>
+                        </div>
+                        <div class="shop-card">
+                            <img src="/assets/img/unban-or-unmute.jpg" alt="" onclick="openPreview(this)">
+                            <h4>Розмут</h4>
+                            <p>Привілей для кращого пересування</p>
+                            <a href="https://discord.com/channels/1438164325901799509/1501565235025154159" class="buy-btn">КУПИТИ</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="cat-currency" class="category-content">
+                    <div class="shop-grid">
+                        <div class="shop-card">
+                            <img src="/assets/img/gold-money.jpg" alt="" onclick="openPreview(this)">
+                            <h4>Гривня-коін</h4>
+                            <p>Найдорожщий біт-кон на сервер!</p>
+                            <a href="/shop/hrn-coin.html" class="buy-btn">ДЕТАЛЬНІШЕ</a>
+                        </div>
+                        <div class="shop-card">
+                            <img src="/assets/img/silver.jpg" alt="" onclick="openPreview(this)">
+                            <h4>Срібний карбованець</h4>
+                            <p>Ехх... Найпошириніша валюта.</p>
+                            <a href="/shop/silve-coin.html" class="buy-btn">ДЕТАЛЬНІШЕ</a>
+                        </div>
+                        <div class="shop-card">
+                            <img src="/assets/img/copper.jpg" alt="" onclick="openPreview(this)">
+                            <h4>Мідний карбованець</h4>
+                            <p>Початок...</p>
+                            <a href="/shop/copper-coin.html" class="buy-btn">ДЕТАЛЬНІШЕ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="close-panel" onclick="closeAllPanels()">✕</button>
+        </div>
+    </div>
+</div>
+<!-- ВІДЕО ФОН -->
+        <video autoplay muted loop playsinline class="bg-video">
+            <source src="/assets/video/your-video.webp" type="video/webp">
+            <!-- Якщо браузер не підтримує webp як відео, краще мати mp4 копію -->
+            <source src="/assets/video/hellow-video.mp4" type="video/mp4">
+        </video>
+
+        <!-- ОВЕРЛЕЙ (затемнення, щоб текст читався) -->
+        <div class="video-overlay"></div>
+
+        <!-- ТВОЯ КАРТКА З МАЛЮНКУ -->
+        <div class="hero-card">
+            <div class="hero-card-content">
+                <h1>Wild Echo</h1>
+                <p>Проєкт для класної гри, з своїм лором, магією та багато чим іншим</p>
+                <a href="/about-us.html" class="more-link">ДЕТАЛЬНІШЕ</a>
+            </div>
+        </div>
+
+        <!-- КНОПКА "ДАЛІ" ВНИЗУ -->
+        <a href="#server-ip" class="scroll-next">
+            <span>Далі</span>
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+        </a>
+</header>
+
+<main class="main-content">
+    <section id="server-ip" class="mc-news-section">
+    <div class="container">
+        <!-- ЗАГОЛОВОК СЕКЦІЇ -->
+        <div class="news-header">
+            <h2 class="mc-title">НОВІ НОВИНИ</h2>
+            <a href="/all-news.html" class="view-all-link">Дивитись усі новини ↗</a>
+        </div>
+
+        <!-- СІТКА НОВИН -->
+        <div class="mc-news-grid">
+            
+            <!-- НОВИНА №1 -->
+            <article class="mc-news-card">
+                <a href="/news/all-news.html">
+                    <div class="card-image" style="background-image: url('/assets/img/fishing-for-new.jpg');">
+                        <div class="card-overlay">
+                            <span class="category-tag">NEWS</span>
+                            <h3 class="card-title">WildEcho: Оновлена Риболовля!</h3>
+                        </div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- НОВИНА №2 -->
+            <article class="mc-news-card">
+                <a href="/all-news.html">
+                    <div class="card-image" style="background-image: url('assets/img/news-preview-2.jpg');">
+                        <div class="card-overlay">
+                            <span class="category-tag">MARKETPLACE</span>
+                            <h3 class="card-title">Нові кастомні платівки від спільноти WildEcho</h3>
+                        </div>
+                    </div>
+                </a>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<section class="collection-section">
+    <div class="container collection-wrapper">
+        <!-- ЛІВА ЧАСТИНА: ТЕКСТ ТА КНОПКИ -->
+        <div class="collection-intro">
+            <h2 class="mc-title">КОЛЕКЦІЙНІ ПРЕДМЕТИ</h2>
+            <p class="collection-desc">
+                Світ WildEcho величезний. Чому б не вийти за межі його блокових кордонів? 
+                Прикрась свій пристрій нашими улюбленими шпалерами, банерами соцмереж 
+                та іншими елементами від нашої команди.
+            </p>
+            <a href="/error/404.html" class="view-all-link green">Дивитись всі колекційні предмети ↗</a>
+
+            <!-- Стрілки навігації -->
+            <div class="slider-arrows">
+                <button class="arrow-btn" onclick="scrollSlider(-1)">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </button>
+                <button class="arrow-btn" onclick="scrollSlider(1)">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M5 12h14m-7 7 7-7-7-7"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- ПРАВА ЧАСТИНА: КАРТКИ -->
+        <div class="collection-cards" id="collection-slider">
+            <!-- Картка 1 -->
+            <div class="col-card">
+                <div class="col-img" style="background-image: url('/assets/img/secret.jpg');"></div>
+                <div class="col-info">
+                    <span class="col-tag">Секрет. Тссс...</span>
+                    <div class="col-footer">
+                        <h3>Секрет. Тссс...</h3>
+                        <span class="download-icon">↓</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Картка 2 -->
+            <div class="col-card">
+                <div class="col-img" style="background-image: url('/assets/img/secret.jpg');"></div>
+                <div class="col-info">
+                    <span class="col-tag">Секрет. Тссс...</span>
+                    <div class="col-footer">
+                        <h3>Секрет. Тссс...</h3>
+                        <span class="download-icon">↓</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Картка 3 -->
+            <div class="col-card">
+                <div class="col-img" style="background-image: url('/assets/img/secret.jpg');"></div>
+                <div class="col-info">
+                    <span class="col-tag">Секрет. Тссс...</span>
+                    <div class="col-footer">
+                        <h3>Секрет. Тссс...</h3>
+                        <span class="download-icon">↓</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Картка 4 -->
+            <div class="col-card">
+                <div class="col-img" style="background-image: url('/assets/img/secret.jpg');"></div>
+                <div class="col-info">
+                    <span class="col-tag">Секрет. Тссс...</span>
+                    <div class="col-footer">
+                        <h3>Секрет. Тссс...</h3>
+                        <span class="download-icon">↓</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="server-join-section">
+    <div class="mc-newsletter-box"> <!-- Використовуємо той самий контейнер -->
+        <h2 class="mc-newsletter-title">ГРАЙТЕ НА WILDECHO ВЖЕ ЗАРАЗ!</h2>
+        
+        <div class="mc-server-grid">
+            <!-- Блок IP -->
+            <div class="mc-server-item">
+                <label class="mc-label">IP АДРЕСА СЕРВЕРА <span class="required">*</span></label>
+                <div class="mc-input-display" id="server-ip">node10.doomhosting.com:25637</div>
+            </div>
+
+            <!-- Блок Версії -->
+            <div class="mc-server-item">
+                <label class="mc-label">РЕКОМЕНДОВАНА ВЕРСІЯ <span class="required">*</span></label>
+                <div class="mc-input-display">1.21.8</div>
+            </div>
+        </div>
+
+        <p class="mc-server-note">
+            Можна заходити з версій вище, але для стабільної роботи та коректного відображення магії рекомендовано <b>1.21.8</b>.
+        </p>
+
+        <hr class="form-divider">
+
+        <div class="form-bottom">
+            <div class="legal-section">
+                <p>Натискаючи кнопку, ви копіюєте адресу сервера в буфер обміну. Просто вставте її в грі (Ctrl+V) у розділі "Мультиплеєр".</p>
+            </div>
+            <!-- Кнопка в стилі "Надіслати" -->
+            <button class="mc-submit-btn" onclick="copyIP()">
+                СКОПІЮВАТИ <span class="arrow">›</span>
+            </button>
+        </div>
+    </div>
+</section>
+<section class="mc-social-section">
+    <div class="container mc-social-grid">
+        
+        <!-- ЛІВА ЧАСТИНА: СОЦМЕРЕЖІ -->
+        <div class="social-links-stack">
+            <a href="https://discord.gg/nBhVTp8xD9" class="mc-social-link">
+                <span class="social-icon"><svg fill="#000000" width="32px" height="32px" viewBox="-1 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15.45,0 C16.5684694,0 17.4812026,0.901320283 17.4997134,2.02517151 L17.5,2.06 L17.5,20 L15.35,18.1 L14.14,16.98 L12.86,15.79 L13.39,17.64 L2.05,17.64 C0.931530612,17.64 0.0187973761,16.7386797 0.000286625896,15.6148285 L0,15.58 L0,2.06 C0,0.931632653 0.901320283,0.0187984173 2.01547452,0.00028663652 L2.05,0 L15.45,0 Z M7.32,4.78 L7.22,4.6599169 L7.1630624,4.66059412 C6.890192,4.66871965 5.6772,4.7596 4.41,5.71 L4.36156128,5.802081 C4.110624,6.291581 2.97,8.6742 2.97,11.54 L2.99079837,11.5731719 C3.132297,11.789822 4.0089,12.9963 6.02,13.06 L6.31452473,12.6987136 C6.43107266,12.5548097 6.56647059,12.3864706 6.69,12.23 C5.5242617,11.8811964 5.02413637,11.1785226 4.94987673,11.0655003 L4.94,11.05 L4.98113281,11.0774219 C5.02625,11.1067188 5.1075,11.1575 5.22,11.22 C5.23,11.23 5.24,11.24 5.26,11.25 C5.29,11.27 5.32,11.28 5.35,11.3 C5.6,11.44 5.85,11.55 6.08,11.64 C6.49,11.8 6.98,11.96 7.55,12.07 C8.27857143,12.206 9.12982041,12.2570694 10.0579114,12.0948686 L10.14,12.08 C10.61,12 11.09,11.86 11.59,11.65 C11.94,11.52 12.33,11.33 12.74,11.06 L12.7236045,11.0849198 C12.6278835,11.2248395 12.1044828,11.9182759 10.93,12.25 L11.0953826,12.4572606 C11.347936,12.770868 11.59,13.06 11.59,13.06 C13.8,12.99 14.65,11.54 14.65,11.54 C14.65,8.32 13.21,5.71 13.21,5.71 C11.9716,4.7812 10.784972,4.67329454 10.4769888,4.66128549 L10.4,4.6599169 L10.26,4.82 C11.7675403,5.28112997 12.5594623,5.92313048 12.7194499,6.06258405 L12.75,6.09 C11.71,5.52 10.69,5.24 9.74,5.13 C9.02,5.05 8.33,5.07 7.72,5.15 C7.66,5.15 7.61,5.16 7.55,5.17 L7.493785,5.17528 C7.11445,5.21385 6.2965,5.3535 5.28,5.8 L5.13470143,5.86775227 C4.9530442,5.9537305 4.82068394,6.02127593 4.74962341,6.05838585 L4.69,6.09 C4.69,6.09 5.503483,5.315721 7.26629086,4.79567994 L7.32,4.78 Z M6.94,8.39 C7.51,8.39 7.97,8.89 7.96,9.5 C7.96,10.11 7.51,10.61 6.94,10.61 C6.38,10.61 5.92,10.11 5.92,9.5 C5.92,8.89 6.37,8.39 6.94,8.39 Z M10.59,8.39 C11.16,8.39 11.61,8.89 11.61,9.5 C11.61,10.11 11.16,10.61 10.59,10.61 C10.03,10.61 9.57,10.11 9.57,9.5 C9.57,8.89 10.02,8.39 10.59,8.39 Z"/></svg></span> DISCORD
+            </a>
+            <a href="/error/404.html" class="mc-social-link">
+                <span class="social-icon"><svg fill="#000000" width="32px" height="32px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10,0 C15.5228475,0 20,4.4771525 20,10 C20,15.5228475 15.5228475,20 10,20 C4.4771525,20 0,15.5228475 0,10 C0,4.4771525 4.4771525,0 10,0 Z M14.4415206,6 C14.060553,6.00676048 13.476055,6.20741135 10.663148,7.36249773 C9.67796175,7.7670526 7.70897661,8.60437935 4.75619264,9.87447795 C4.27670659,10.0627254 4.02553067,10.2468857 4.00266485,10.4269588 C3.95876487,10.7726802 4.46291296,10.8803081 5.09723696,11.0838761 C5.61440201,11.2498453 6.31007997,11.4440124 6.67173438,11.4517262 C6.99978943,11.4587234 7.36593635,11.3251987 7.77017511,11.051152 C10.5290529,9.21254679 11.9531977,8.28322679 12.0426094,8.26319203 C12.1056879,8.24905787 12.1930992,8.23128593 12.2523244,8.28325656 C12.3115496,8.33522719 12.3057275,8.43364956 12.299454,8.46005377 C12.2492926,8.67117474 9.65764825,10.998457 9.50849738,11.1513987 L9.43697409,11.2233057 C8.88741493,11.7661123 8.33196049,12.1205055 9.290333,12.7440164 C10.155665,13.3069957 10.6592923,13.6661378 11.5507686,14.2430701 C12.1204738,14.6117635 12.5671299,15.0489784 13.1553348,14.9955401 C13.4259939,14.9709508 13.705567,14.7196888 13.8475521,13.9703127 C14.1831052,12.1993135 14.8426779,8.36209709 14.9951103,6.78087197 C15.0084653,6.64233621 14.9916649,6.46503787 14.9781732,6.38720805 C14.9646815,6.30937823 14.9364876,6.19848702 14.8340164,6.11639754 C14.7126597,6.01917896 14.5253109,5.99867765 14.4415206,6 Z"/></svg></span> TELEGRAM
+            </a>
+            <a href="/error/404.html" class="mc-social-link">
+                <span class="social-icon"><svg fill="#000000" width="32px" height="32px" viewBox="0 0 24 24" id="tiktok" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color"><path id="primary" d="M21,7V9a1,1,0,0,1-1,1,8,8,0,0,1-4-1.08V15.5A6.5,6.5,0,1,1,6.53,9.72a1,1,0,0,1,1.47.9v2.52a.92.92,0,0,1-.28.62,2.49,2.49,0,0,0,2,4.23A2.61,2.61,0,0,0,12,15.35V3a1,1,0,0,1,1-1h2.11a1,1,0,0,1,1,.83A4,4,0,0,0,20,6,1,1,0,0,1,21,7Z" style="fill: rgb(0, 0, 0);"></path></svg></span> TIKTOK
+            </a>
+            <a href="error/404.html" class="mc-social-link">
+                <span class="social-icon"><svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:none;}</style></defs><title>logo--youtube</title><path d="M29.41,9.26a3.5,3.5,0,0,0-2.47-2.47C24.76,6.2,16,6.2,16,6.2s-8.76,0-10.94.59A3.5,3.5,0,0,0,2.59,9.26,36.13,36.13,0,0,0,2,16a36.13,36.13,0,0,0,.59,6.74,3.5,3.5,0,0,0,2.47,2.47C7.24,25.8,16,25.8,16,25.8s8.76,0,10.94-.59a3.5,3.5,0,0,0,2.47-2.47A36.13,36.13,0,0,0,30,16,36.13,36.13,0,0,0,29.41,9.26ZM13.2,20.2V11.8L20.47,16Z"/><rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"/></svg></span> YOUTUBE
+            </a>
+        </div>
+
+        <!-- ПРАВА ЧАСТИНА: СТАТУС/ІНФО -->
+        <div class="mc-status-card">
+            <div class="card-top">
+                <h2 class="mc-status-title">ВАЖЛИВА ІНФОРМАЦІЯ</h2>
+                <p class="mc-status-text">
+                    Деякі з наших соціальних мереж наразі ще неактивні, але ми працюємо над їх запуском. Слідкуйте за оновленнями на сайті!
+                </p>
+            </div>
+            
+            <a href="/all-news.html" class="mc-news-btn">
+                ЧИТАТИ НОВИНИ <span class="arrow">›</span>
+            </a>
+        </div>
+
+    </div>
+</section>
+</main>
+
+<footer class="site-footer">
+    <!-- ВЕРХНЯ ЧАСТИНА -->
+    <div class="footer-top">
+        <div class="footer-container">
+            <!-- Логотипи та копірайт -->
+            <div class="footer-brand">
+                <div class="brand-logos">
+                    <img src="/assets/img/preview-image.jpg" alt="Wild Echo" class="footer-logo">
+                </div>
+                <div class="brand-info">
+                    <p>© 2026 WildEcho.</p>
+                    <div class="brand-links">
+                        <a href="/legal/rules-of-use.html">Правила використання</a>
+                        <a href="/legal/manage-consent.html">Керувати згодою</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Колонки посилань -->
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Наші проєкти</h4>
+                    <a href="/index.html">WildEcho</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Спільнота</h4>
+                    <a href="https://discord.gg/nBhVTp8xD9">Discord Сервер</a>
+                    <a href="/error/404.html">Telegram Канал (поки недоступно)</a>
+                    <a href="/error/404.html">YouTube (поки недоступно)</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Підтримка</h4>
+                    <a href="/legal/help.html">Допомога</a>
+                    <a href="/legal/reviews.html">Відгуки</a>
+                    <a href="/https://discord.gg/nBhVTp8xD9">Зв'язатися з нами</a>
+                    <a href="/legal/faq.html">FAQ</a>
+                </div>
+            </div>
+
+            <!-- Рейтинг (ESRB) -->
+            <div class="footer-rating">
+                <img src="/assets/img/esrb-rating.jpg" alt="Rating">
+            </div>
+        </div>
+    </div>
+
+    <!-- НИЖНЯ СІРА ПАНЕЛЬ -->
+    <div class="footer-bottom">
+        <div class="footer-container">
+            <div class="footer-lang">
+                <button class="lang-selector">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    Українська
+                </button>
+            </div>
+            
+            <div class="footer-legal">
+                <a href="/legal/privacy-and-cookies.html">Конфіденційність та файли cookie</a>
+                <a href="/legal/terms-of-use.html">Умови використання</a>
+                <a href="/legal/trademarks.html">Товарні знаки</a>
+                <a href="/legal/about-our-advertising.html">Про нашу рекламу</a>
+                <span>© 2026 WildEcho | Наш проєкт не пов’язаний з компаніями Mojang або Microsoft</span>
+            </div>
+
+            <div class="footer-ms-logo">
+                <img src="/assets/img/preview-image.jpg" alt="WildEcho">
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+function togglePanel(panelId) {
+    const target = document.getElementById(panelId);
+    const isActive = target.classList.contains('active');
+
+    // 1. Закриваємо всі панелі
+    closeAllPanels();
+
+    // 2. Якщо натиснута панель не була відкритою — відкриваємо її
+    if (!isActive) {
+        target.classList.add('active');
+        // Якщо це пошук, ставимо курсор у поле вводу автоматично
+        if(panelId === 'search-panel') {
+            setTimeout(() => {
+                target.querySelector('input').focus();
+            }, 300);
+        }
+    }
+}
+
+function copyIP() {
+    const ipText = document.getElementById('server-ip').innerText;
+    const btn = document.querySelector('.mc-submit-btn');
+
+    // Створюємо тимчасовий елемент для копіювання
+    const tempInput = document.createElement("textarea");
+    tempInput.value = ipText;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    
+    try {
+        // Старий надійний метод копіювання
+        document.execCommand("copy");
+        
+        // Візуальний відгук
+        const originalText = btn.innerHTML;
+        btn.innerHTML = "СКОПІЙОВАНО! <span class='arrow'>✓</span>";
+        btn.style.backgroundColor = "#3c8527"; 
+        btn.style.color = "#fff";
+
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.style.backgroundColor = "#fff";
+            btn.style.color = "#888";
+        }, 2000);
+
+    } catch (err) {
+        console.error("Не вдалося скопіювати", err);
+        alert("Помилка копіювання. Скопіюйте вручну: " + ipText);
+    }
+
+    // Видаляємо тимчасовий елемент
+    document.body.removeChild(tempInput);
+}
+
+function scrollSlider(direction) {
+    const slider = document.getElementById('collection-slider');
+    const scrollAmount = 300; // На скільки пікселів прокручувати
+    slider.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+    });
+}
+
+function closeAllPanels() {
+    document.querySelectorAll('.mega-panel').forEach(panel => {
+        panel.classList.remove('active');
+    });
+}
+
+function switchCategory(event, categoryId) {
+    // 1. Прибираємо активний клас у всіх кнопок меню
+    const buttons = document.querySelectorAll('.side-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    // 2. Прибираємо активний клас у всіх блоків з контентом
+    const contents = document.querySelectorAll('.category-content');
+    contents.forEach(content => content.classList.remove('active'));
+
+    // 3. Додаємо активний клас натиснутій кнопці
+    event.currentTarget.classList.add('active');
+
+    // 4. Показуємо потрібну категорію
+    document.getElementById(categoryId).classList.add('active');
+}
+
+// Відкрити фото
+function openPreview(imgElement) {
+    const modal = document.getElementById("image-viewer");
+    const modalImg = document.getElementById("full-image");
+    const captionText = document.getElementById("caption");
+
+    modal.style.display = "flex"; // Показуємо вікно
+    modalImg.src = imgElement.src; // Беремо шлях до фото з натиснутої картинки
+    captionText.innerHTML = imgElement.alt; // Беремо текст з атрибута alt
+}
+
+// Закрити фото
+function closePreview() {
+    document.getElementById("image-viewer").style.display = "none";
+}
+
+// Закриття, якщо натиснути поза картинкою або на клавішу Esc
+window.onclick = function(event) {
+    const modal = document.getElementById("image-viewer");
+    if (event.target == modal) {
+        closePreview();
+    }
+}
+
+function copyIP() {
+    const ip = document.getElementById('server-ip').innerText;
+    navigator.clipboard.writeText(ip).then(() => {
+        const btn = document.querySelector('.copy-ip-btn');
+        const originalText = btn.innerText;
+        btn.innerText = "СКОПІЙОВАНО!";
+        btn.style.background = "#2a5d1a";
+        
+        setTimeout(() => {
+            btn.innerText = originalText;
+            btn.style.background = "#3c8527";
+        }, 2000);
+    });
+}
+
+function updateNavbar() {
+        const user = localStorage.getItem('session_user');
+        const container = document.getElementById('accountButton');
+
+        if (user) {
+            // ЯКЩО УВІЙШОВ: Показуємо кнопку Профіль/Вийти
+            container.innerHTML = `
+                <div class="auth-wrapper-nav">
+                    <a href="profile.html" class="login-btn profile-nav-btn">
+                        <span class="profile-text">ПРОФІЛЬ</span>
+                        <span class="logout-text" onclick="handleLogout(event)">ВИЙТИ</span>
+                    </a>
+                </div>
+            `;
+        } else {
+            // ЯКЩО НЕ УВІЙШОВ: Показуємо звичайну кнопку Увійти
+            container.innerHTML = `<a href="login.html" class="login-btn">УВІЙТИ</a>`;
+        }
+    }
+
+    function handleLogout(e) {
+        // Зупиняємо перехід на сторінку профілю, щоб просто вийти
+        e.preventDefault();
+        if(confirm("Ви впевнені, що хочете вийти?")) {
+            localStorage.removeItem('session_user');
+            window.location.reload(); // Перевантажуємо сторінку, щоб кнопка змінилася
+        }
+    }
+
+    // Запускаємо перевірку при завантаженні сторінки
+    updateNavbar();
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") closePreview();
+});
+
+// Закриття на клавішу Escape
+document.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") closeAllPanels();
+});
+
+document.querySelector('.scroll-next').addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    
+    window.scrollTo({
+        top: targetElement.offsetTop - 80, // -80 щоб врахувати висоту набару
+        behavior: 'smooth'
+    });
+});
+
+// Закриття, якщо клікнути поза межами панелі (на фон хедера)
+document.addEventListener('mousedown', (e) => {
+    const panels = document.querySelectorAll('.mega-panel');
+    const navbar = document.querySelector('.navbar');
+    
+    panels.forEach(panel => {
+        if (panel.classList.contains('active')) {
+            // Перевіряємо, чи клік НЕ по панелі і НЕ по набару
+            if (!panel.contains(e.target) && !navbar.contains(e.target)) {
+                closeAllPanels();
+            }
+        }
+    });
+});
+</script>
+        </body>
+</html>

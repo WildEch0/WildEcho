@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Правила Creative | Wild Echo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        /* =========================================
+           1. ГЛОБАЛЬНІ НАЛАШТУВАННЯ
+           ========================================= */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --mc-purple: #7b2cbf;
+            --mc-purple-light: #9d4edd;
+            --mc-red: #ff4444;
+            --gold: #f9d54c;
+            --bg-dark: #0d001a;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: url('https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/realms/bedrock-bg.png');
+            background-size: 100px;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .vt-font { font-family: 'VT323', monospace; text-transform: uppercase; }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* =========================================
+           2. НАВІГАЦІЯ
+           ========================================= */
+        .navbar {
+            background-color: #111;
+            border-bottom: 3px solid var(--mc-purple);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: Impact, sans-serif;
+            font-size: 24px;
+            color: #fff !important;
+            text-decoration: none !important;
+        }
+
+        .menu-links { display: flex; gap: 25px; }
+        .menu-links a { 
+            color: #fff !important; 
+            text-decoration: none !important; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            font-size: 13px; 
+        }
+        .menu-links a:hover { color: var(--mc-purple-light) !important; }
+
+        /* =========================================
+           3. ГЕРОЙ-БАНЕР
+           ========================================= */
+        .rules-hero {
+            padding: 80px 0 40px;
+            text-align: center;
+            background: radial-gradient(circle at center, #2e064d 0%, transparent 100%);
+        }
+
+        .hero-title {
+            font-size: 72px;
+            color: #fff;
+            text-shadow: 0 0 20px var(--mc-purple-light);
+            margin-bottom: 10px;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--mc-purple-light);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* =========================================
+           4. КОНТЕНТ ПРАВИЛ (CARDS)
+           ========================================= */
+        .rules-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding-bottom: 80px;
+        }
+
+        /* Загальний стиль блоку */
+        .rules-block {
+            background: rgba(20, 20, 20, 0.9);
+            border: 2px solid #333;
+            padding: 40px;
+            position: relative;
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.5);
+        }
+
+        /* Блок "Що дає" */
+        .block-benefits { border-left: 6px solid var(--mc-purple); }
+        /* Блок "Суворо" */
+        .block-strict { border: 2px solid var(--mc-red); background: rgba(40, 0, 0, 0.4); }
+        /* Блок "Покарання" */
+        .block-danger { border: 2px solid var(--mc-red); background: #1a0000; text-align: center; }
+
+        .block-title {
+            font-size: 32px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .rules-list {
+            list-style: none;
+        }
+
+        .rules-list li {
+            font-size: 18px;
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            color: #ccc;
+        }
+
+        .rules-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--mc-purple-light);
+            font-size: 24px;
+        }
+
+        .block-strict .rules-list li::before { color: var(--mc-red); }
+
+        .highlight-red { color: var(--mc-red); font-weight: 900; }
+
+        /* =========================================
+           5. ФУТЕР
+           ========================================= */
+        .site-footer {
+            background: #000;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #222;
+            color: #444;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">WILDECHO</a>
+            <div class="menu-links">
+                <a href="index.html">Головна</a>
+                <a href="shop.html">Магазин</a>
+                <a href="rules.html">Правила</a>
+                <a href="news.html">Новини</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="rules-hero">
+        <div class="container">
+            <h1 class="hero-title vt-font">CREATIVE RULES</h1>
+            <p class="hero-subtitle vt-font">Повний контроль. Але під наглядом.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="rules-grid">
+            
+            <!-- БЛОК 1: МОЖЛИВОСТІ -->
+            <section class="rules-block block-benefits">
+                <h2 class="block-title vt-font">💎 ЩО ДАЄ:</h2>
+                <ul class="rules-list">
+                    <li>Доступ до Creative режиму</li>
+                    <li>Можливість будувати без обмежень</li>
+                    <li>Переключення між Creative ↔ Survival</li>
+                </ul>
+            </section>
+
+            <!-- БЛОК 2: ЗАБОРОНИ -->
+            <section class="rules-block block-strict">
+                <h2 class="block-title vt-font" style="color: var(--mc-red);">❗ СУВОРО:</h2>
+                <ul class="rules-list">
+                    <li>Заборонено передавати ресурси з Creative іншим гравцям.</li>
+                    <li>Заборонено допомагати іншим гравцям ресурсами з Creative.</li>
+                    <li>Заборонено будь-які способи обходу цих правил (скрині, викидання предметів тощо).</li>
+                </ul>
+            </section>
+
+            <!-- БЛОК 3: КОНТРОЛЬ -->
+            <section class="rules-block">
+                <h2 class="block-title vt-font" style="color: var(--gold);">🔍 КОНТРОЛЬ:</h2>
+                <ul class="rules-list">
+                    <li>Ведуться детальні логи кожної дії гравця.</li>
+                    <li>Адміністрація ретельно відслідковує активність у Creative режимі.</li>
+                    <li>Будь-які підозрілі дії перевіряються автоматичною системою та модерацією.</li>
+                </ul>
+            </section>
+
+            <!-- БЛОК 4: ПОКАРАННЯ -->
+            <section class="rules-block block-danger">
+                <h2 class="block-title vt-font" style="justify-content: center; color: var(--mc-red);">⛔ ПОКАРАННЯ:</h2>
+                <p class="vt-font" style="font-size: 28px; color: #fff;">
+                    ПОРУШЕННЯ = <span class="highlight-red">ПЕРМАНЕНТНИЙ БАН</span>
+                </p>
+                <p style="color: #666; margin-top: 10px;">БЕЗ ПОПЕРЕДЖЕННЯ ТА ПОВЕРНЕННЯ КОШТІВ</p>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2026 Wild Echo Project. Порушення правил веде до обмеження доступу.</p>
+    </footer>
+
+</body>
+</html>

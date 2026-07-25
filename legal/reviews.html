@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Відгуки гравців | Wild Echo Community</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        /* =========================================
+           1. ОСНОВНІ НАЛАШТУВАННЯ
+           ========================================= */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --mc-green: #3c8527;
+            --mc-gold: #ffcd00;
+            --mc-purple: #7b2cbf;
+            --bg-dark: #000000;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: url('https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/realms/bedrock-bg.png');
+            background-size: 100px;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            padding-bottom: 100px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* =========================================
+           2. НАВІГАЦІЯ
+           ========================================= */
+        .navbar {
+            background-color: #111;
+            border-bottom: 3px solid var(--mc-green);
+            padding: 15px 0;
+            margin-bottom: 60px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-logo {
+            font-family: Impact, sans-serif;
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .menu-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        /* =========================================
+           3. ТЕКСТОВИЙ КОНТЕНТ (COMMUNITY STYLE)
+           ========================================= */
+        
+        h1 {
+            font-family: 'VT323', monospace;
+            font-size: 52px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: var(--mc-gold);
+            text-align: center;
+            text-shadow: 0 0 15px rgba(255, 205, 0, 0.3);
+        }
+
+        .intro-lead {
+            font-size: 18px;
+            color: #ccc;
+            text-align: center;
+            margin-bottom: 60px;
+            font-style: italic;
+        }
+
+        h2 {
+            font-family: 'VT323', monospace;
+            font-size: 34px;
+            text-transform: uppercase;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            border-bottom: 1px solid #222;
+            padding-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #eeeeee;
+        }
+
+        /* Списки */
+        .mc-list {
+            list-style: none;
+            margin: 20px 0 30px 0;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 25px;
+            border: 1px solid #222;
+        }
+
+        .mc-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: #ddd;
+        }
+
+        .mc-list li::before {
+            content: '■';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--mc-green);
+            font-size: 12px;
+        }
+
+        /* Блок правил */
+        .rules-box {
+            background: #111;
+            padding: 30px;
+            border: 1px solid #333;
+            border-left: 5px solid var(--mc-gold);
+            margin: 40px 0;
+        }
+
+        .rules-box h3 {
+            font-family: 'VT323', monospace;
+            font-size: 28px;
+            color: var(--mc-gold);
+            margin-bottom: 15px;
+        }
+
+        /* Discord CTA */
+        .feedback-cta {
+            text-align: center;
+            margin-top: 80px;
+            padding: 50px;
+            background: radial-gradient(circle, #1a3a11 0%, #000 100%);
+            border: 2px solid #222;
+        }
+
+        .btn-discord {
+            display: inline-block;
+            background: #5865F2;
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 40px;
+            font-weight: 900;
+            font-size: 16px;
+            text-transform: uppercase;
+            border-bottom: 5px solid #3a45c3;
+            transition: 0.2s;
+            margin-top: 20px;
+        }
+
+        .btn-discord:hover {
+            background: #6a77f5;
+            transform: translateY(-3px);
+        }
+
+        .footer-quote {
+            margin-top: 80px;
+            text-align: center;
+            font-family: 'VT323', monospace;
+            font-size: 24px;
+            color: var(--mc-green);
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">WILDECHO</a>
+            <div class="menu-links">
+                <a href="../index.html">Головна</a>
+                <a href="../shop.html">Магазин</a>
+                <a href="index.html">Legal</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        
+        <h1 class="vt-font">Відгуки гравців</h1>
+        
+        <p class="intro-lead">Ми цінуємо думку кожного гравця. Саме завдяки вашим відгукам Wild Echo стає кращим, а нові оновлення — ще цікавішими.</p>
+
+        <h2 class="vt-font">Чому ваші відгуки важливі?</h2>
+        <p>Кожен коментар, пропозиція чи повідомлення про проблему допомагає нам:</p>
+        <ul class="mc-list">
+            <li>покращувати ігровий процес та баланс;</li>
+            <li>вдосконалювати магазин і систему автоматизації покупок;</li>
+            <li>швидше виявляти та виправляти технічні помилки;</li>
+            <li>створювати нові функції, на які чекає саме наша спільнота.</li>
+        </ul>
+
+        <h2 class="vt-font">Як залишити відгук?</h2>
+        <p>Якщо ви хочете поділитися своєю думкою, ви можете скористатися одним із наступних способів:</p>
+        <ul class="mc-list">
+            <li>Написати у текстовому каналі <strong>#feedback</strong> нашого Discord;</li>
+            <li>Створити тікет із тегом "Пропозиція" у розділі підтримки;</li>
+            <li>Звернутися безпосередньо до модерації чи адміністрації під час івентів.</li>
+        </ul>
+        <p>Ми уважно читаємо всі звернення та враховуємо конструктивні ідеї під час планування наступних сезонів проєкту.</p>
+
+        <section class="rules-box">
+            <h3 class="vt-font">Правила публікації</h3>
+            <p>Щоб ваші відгуки були максимально корисними, просимо дотримуватися простих етичних норм:</p>
+            <ul class="mc-list" style="background: none; border: none; margin: 0; padding: 0;">
+                <li style="font-size: 15px;">Будьте ввічливими та поважайте працю адміністрації та інших гравців;</li>
+                <li style="font-size: 15px;">Описуйте проблему або враження максимально зрозуміло та розгорнуто;</li>
+                <li style="font-size: 15px;">Не використовуйте образи, погрози чи нецензурну лексику;</li>
+                <li style="font-size: 15px;">Не публікуйте особисту інформацію (свою чи інших людей).</li>
+            </ul>
+        </section>
+
+        <h2 class="vt-font">Пропозиції щодо розвитку</h2>
+        <p>У вас є цікава ідея для сервера, концепція нової привілеї чи бачення майбутнього оновлення? Ми завжди відкриті до креативних думок та із задоволенням розглянемо ваш вклад у розвиток <strong>Wild Echo</strong>.</p>
+
+        <section class="feedback-cta">
+            <h2 class="vt-font" style="margin-top: 0; border: none;">Дякуємо за підтримку!</h2>
+            <p>Кожен відгук допомагає зробити наш світ досконалішим. Залиште свою думку прямо зараз у нашому Discord.</p>
+            <a href="https://discord.gg/nBhVTp8xD9" class="btn-discord">Перейти до відгуків</a>
+        </section>
+
+        <p class="footer-quote">Разом ми створюємо сервер, на якому хочеться грати!</p>
+
+    </main>
+
+</body>
+</html>

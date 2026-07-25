@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft | Official Site Style</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+      /* Базові стилі */
+:root {
+    --mc-yellow: #ffd200;
+    --mc-green: #3c8527;
+    --mc-black: #000000;
+    --mc-dark-gray: #1a1a1a;
+    --mc-bg: #121212;
+}
+
+body {
+    margin: 0;
+    font-family: 'Noto Sans', sans-serif;
+    background-color: var(--mc-bg);
+    color: white;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Promo bar */
+.top-promo {
+    background: #002244;
+    color: var(--mc-yellow);
+    text-align: center;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: bold;
+}
+.top-promo a { color: inherit; text-decoration: none; border-bottom: 1px solid; }
+
+/* Navigation */
+.main-nav {
+    background: var(--mc-dark-gray);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.logo img { height: 35px; }
+.menu { display: flex; list-style: none; gap: 20px; font-weight: bold; font-size: 13px; }
+.menu li { cursor: pointer; }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.account-zone { display: flex; gap: 15px; font-size: 13px; font-weight: bold; }
+.buy-now {
+    border: 1px solid var(--mc-green);
+    color: var(--mc-green);
+    padding: 8px 15px;
+    text-decoration: none;
+    font-weight: 900;
+}
+
+/* Search */
+.search-bar {
+    background: var(--mc-yellow);
+    padding: 25px 0;
+    color: black;
+}
+.search-bar label { display: block; font-weight: 900; font-size: 12px; margin-bottom: 5px; }
+.search-input-wrapper {
+    background: black;
+    display: flex;
+    padding: 12px;
+}
+.search-input-wrapper input {
+    background: transparent;
+    border: none;
+    color: white;
+    width: 100%;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+/* Categories */
+.categories { padding: 40px 0; background: black; }
+.cat-grid {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+}
+.cat-item {
+    background: var(--mc-dark-gray);
+    padding: 15px 25px;
+    min-width: 140px;
+    font-weight: bold;
+    border-bottom: 4px solid #000;
+}
+
+/* Marketplace Grid */
+.marketplace { padding: 40px 0; }
+.marketplace-grid {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    gap: 20px;
+}
+.big-card {
+    background: var(--mc-dark-gray);
+    border: 1px solid #333;
+}
+.img-holder {
+    height: 350px;
+    background-size: cover;
+    position: relative;
+}
+.pixel-tag {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: black;
+    color: #00ffff;
+    padding: 15px;
+    font-size: 25px;
+}
+.card-info { padding: 20px; }
+.price { color: var(--mc-yellow); font-weight: 900; font-size: 24px; text-align: right; }
+
+/* Mini Cards */
+.mini-card {
+    background: var(--mc-dark-gray);
+    display: flex;
+    gap: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.mini-img { width: 120px; height: 80px; background: #444; }
+.mini-info h4 { margin: 0; font-size: 15px; }
+.mini-meta { display: flex; justify-content: space-between; margin-top: 10px; font-size: 14px; }
+.gold { color: var(--mc-yellow); font-weight: bold; }
+
+/* Footer */
+.footer { background: black; padding: 60px 0; border-top: 4px solid var(--mc-green); }
+.footer-content { display: flex; justify-content: space-between; align-items: flex-start; }
+.mojang-logo { height: 50px; margin-right: 20px; }
+.xbox-logo { height: 40px; }
+.legal a { color: #aaa; text-decoration: none; font-size: 12px; }
+.f-col h4 { color: white; margin-bottom: 15px; }
+.f-col a { display: block; color: var(--mc-green); text-decoration: none; font-size: 13px; margin-bottom: 8px; }
+.rating-box img { width: 120px; }
+
+/* НАВБАР (уніфікований) */
+        .navbar {
+            background-color: #1a1a1a;
+            border-bottom: 3px solid #3c8527;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .logo-img { height: 40px; }
+        .menu-links { display: flex; gap: 25px; }
+        .menu-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+        .menu-links a:hover { color: #3c8527; }
+        
+        .login-btn {
+            background-color: #3c8527;
+            color: #fff;
+            padding: 10px 25px;
+            text-decoration: none;
+            font-weight: 900;
+            transition: 0.3s;
+        }
+        .login-btn:hover { background-color: #47a02e; }
+
+        .mc-official {
+    background: #000;
+    color: #fff;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.mc-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Соцмережі */
+.mc-follow-bar {
+    border-bottom: 1px solid #333;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.mc-follow-bar p {
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin: 0 0 15px 0;
+}
+
+.mc-social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.mc-social-icons a {
+    background: #333;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.mc-social-icons a:hover {
+    background: #3de043;
+}
+
+/* Основна частина */
+.mc-main-body {
+    background: #111;
+    padding: 60px 0;
+}
+
+.mc-main-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 2fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Лого */
+.mc-logos {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.mc-logos img { height: 60px; }
+
+.xbox-style {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    line-height: 1.1;
+    font-size: 18px;
+}
+
+.xbox-style i { font-size: 32px; }
+
+.mc-copyright {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.mc-brand-links { font-size: 13px; }
+.mc-brand-links a { color: #3de043; text-decoration: none; }
+
+/* Колонки */
+.mc-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.mc-col h3 {
+    font-size: 16px;
+    margin: 0 0 15px 0;
+    font-weight: bold;
+}
+
+.mc-col a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.mc-col a:hover { text-decoration: underline; }
+.green-link { color: #3de043 !important; }
+
+/* Оплата як ESRB */
+.mc-rating-box {
+    border: 2px solid #fff;
+    background: #fff;
+    color: #000;
+    width: 220px;
+    margin-left: auto;
+}
+
+.rating-content {
+    display: flex;
+    padding: 10px;
+}
+
+.rating-left {
+    border-right: 2px solid #000;
+    padding-right: 10px;
+    text-align: center;
+    font-weight: 900;
+}
+
+.rating-letter { font-size: 40px; line-height: 1; display: block; }
+.rating-plus { font-size: 12px; }
+
+.rating-right {
+    padding-left: 10px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.rating-right hr { border: 0; border-top: 1px solid #000; margin: 5px 0; }
+
+.rating-footer {
+    background: #000;
+    color: #fff;
+    font-size: 9px;
+    padding: 4px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Низ */
+.mc-bottom-bar {
+    background: #000;
+    padding: 25px 0;
+    font-size: 12px;
+}
+
+.mc-flex-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mc-legal {
+    display: flex;
+    gap: 20px;
+}
+
+.mc-legal a { color: #fff; text-decoration: none; }
+.mc-legal span { color: #666; }
+
+.mc-ms-logo {
+    font-weight: 900;
+    font-size: 22px;
+    letter-spacing: -1px;
+}
+
+/* Мобілка */
+@media (max-width: 900px) {
+    .mc-main-grid { grid-template-columns: 1fr; text-align: center; }
+    .mc-logos, .mc-social-icons { justify-content: center; }
+    .mc-links { grid-template-columns: 1fr; }
+    .mc-rating-box { margin: 20px auto; }
+    .mc-flex-bottom { flex-direction: column; gap: 20px; }
+}
+
+/*<------------------------------------->*/
+
+:root {
+    --mc-green: #3de043;
+    --mc-gold: #ffc400;
+    --mc-bg: #000000;
+    --mc-card-bg: #111111;
+}
+
+body {
+    background-color: var(--mc-bg);
+    color: white;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.mc-marketplace {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Шапка результатів */
+.mc-results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.mc-res-title {
+    font-weight: 900;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+.mc-res-title span {
+    color: #666;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+/* Кнопки-пігулки (Pills) */
+.mc-controls { display: flex; gap: 15px; }
+
+/* Контейнер для вирівнювання */
+.mc-controls-container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.mc-dropdown {
+    position: relative;
+    z-index: 1000;
+}
+
+/* Кнопка-пігулка (Pill) */
+.dropdown-pill {
+    background: #1e1e1e; /* Темний як в меню Майна */
+    border: 2px solid #333;
+    border-radius: 50px;
+    padding: 10px 25px; /* Зробив більше */
+    min-width: 280px;    /* Зробив ширше */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    transition: 0.2s;
+}
+
+.dropdown-pill:hover {
+    border-color: #555;
+    background: #252525;
+}
+
+.dropdown-pill strong {
+    color: #3de043; /* Фірмовий зелений */
+    margin-left: 5px;
+}
+
+.dropdown-pill i {
+    color: #3de043;
+    font-size: 12px;
+}
+
+/* МАЙНКРАФТ МЕНЮ (Випадаючий список) */
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 10px; /* Зміщення для краси */
+    background: #2d2d2d; /* Колір інвентарю/меню Майна */
+    border: 3px solid #000;
+    width: 240px; /* Ширше */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none; /* Сховано */
+    box-shadow: 0 10px 0px rgba(0,0,0,0.5); /* Ретро тінь */
+}
+
+/* Коли меню відкрите */
+.mc-dropdown.active .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    padding: 12px 20px;
+    color: #3de043; /* Зелений текст */
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+/* Ефект наведення як у Windows/Legacy Minecraft */
+.dropdown-menu li:hover {
+    background-color: #2c73d2; /* Синій колір виділення */
+    color: white !important;
+}
+
+/* Кнопка Фільтри поруч */
+.mc-filter-pill {
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 50px;
+    padding: 10px 25px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Картки товарів */
+.mc-shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.product-card {
+    text-decoration: none;
+    color: white;
+    transition: 0.2s;
+}
+
+.product-card:hover { transform: translateY(-5px); }
+
+.pc-img {
+    aspect-ratio: 16/9;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #222;
+    position: relative;
+}
+
+.sale-tag {
+    position: absolute; top: 8px; right: 8px;
+    background: var(--mc-gold); color: black;
+    font-weight: 900; font-size: 10px; padding: 2px 8px;
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.5);
+}
+
+.pc-info { padding: 12px 0; }
+.pc-info h3 { margin: 0; font-size: 16px; font-weight: 700; }
+.pc-meta { color: #aaa; font-size: 12px; margin: 5px 0; display: flex; align-items: center; gap: 5px; }
+.pc-meta i { font-size: 10px; border: 1px solid #444; padding: 2px; }
+
+.pc-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+.pc-rating { color: var(--mc-gold); font-weight: bold; font-size: 14px; }
+.pc-price { color: var(--mc-gold); font-weight: 900; font-size: 16px; display: flex; align-items: center; gap: 5px; }
+
+</style>
+  </head>
+<body>
+
+    <!-- ВЕРХНЯ ПЛАНКА -->
+    <div class="top-promo">
+        WildEcho немає ніякого відношення до <a href="https://www.minecraft.net/en-us">Mojang </a> та <a href="https://www.microsoft.com/en-us">Microsoft</a>
+    </div>
+
+    <!-- НАВІГАЦІЯ -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/index.html"><img src="/assets/img/preview-image.jpg" class="logo-img" alt="Shop"></a>
+            <div class="menu-links">
+                <a href="/index.html">Головна</a>
+                <a href="/shop.html" style="color: #3c8527;">Магазин</a>
+                <a href="/rules.html">Правила</a>
+                <a href="/about-us.html">Про Нас</a>
+                <a href="/wiki.html">Wiki</a>
+                <a href="/all-news.html">Новини</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ЖОВТИЙ ПОШУК -->
+    <section class="search-bar">
+        <div class="container">
+            <label>ПОШУК</label>
+            <div class="search-input-wrapper">
+                <span class="mag-glass">
+                    <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve" fill="#ffffff" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path fill="#ffffff" d="M62.242,53.757L51.578,43.093C54.373,38.736,56,33.56,56,28C56,12.536,43.464,0,28,0S0,12.536,0,28 s12.536,28,28,28c5.56,0,10.736-1.627,15.093-4.422l10.664,10.664c2.344,2.344,6.142,2.344,8.485,0S64.586,56.101,62.242,53.757z M28,54C13.641,54,2,42.359,2,28S13.641,2,28,2s26,11.641,26,26S42.359,54,28,54z M60.828,60.828c-1.562,1.562-4.095,1.562-5.656,0 L44.769,50.425c2.145-1.606,4.051-3.513,5.657-5.656l10.402,10.402C62.391,56.732,62.391,59.266,60.828,60.828z"></path> <path fill="#ffffff" d="M28,4C14.745,4,4,14.745,4,28s10.745,24,24,24s24-10.745,24-24S41.255,4,28,4z M28,50 C15.85,50,6,40.15,6,28S15.85,6,28,6s22,9.85,22,22S40.15,50,28,50z"></path> <path fill="#ffffff" d="M28,11c-0.553,0-1,0.447-1,1s0.447,1,1,1c8.284,0,15,6.716,15,15c0,0.553,0.447,1,1,1s1-0.447,1-1 C45,18.611,37.389,11,28,11z"></path> </g> </g></svg>
+                </span>
+                <!-- Додано id та подію вводу -->
+                <input type="text" id="shop-search" placeholder="Search WildEcho" oninput="handleSearch()">
+            </div>
+        </div>
+    </section>
+
+    <div class="mc-marketplace">
+    <!-- ЗАГОЛОВОК ТА ФІЛЬТРИ -->
+    <div class="mc-results-header">
+        <h2 class="mc-res-title">Результатів <span id="res-count">0</span></h2>
+        
+        <div class="mc-controls-container">
+            <div class="mc-dropdown" id="mc-dropdown">
+                <!-- Головна кнопка (стала ширшою) -->
+                <div class="dropdown-pill" onclick="toggleDropdown()">
+                    <span class="sort-text">Сортувати за: <strong id="selected-label">Результат пошуку</strong></span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                
+                <!-- Випадаюче меню (тепер у стилі Майнкрафт) -->
+                <ul class="dropdown-menu">
+                    <li onclick="applyFilter('all', 'Все')">Все</li>
+                    <li onclick="applyFilter('ranks', 'Привілеї')">Привілеї</li>
+                    <li onclick="applyFilter('disc', 'Платівки')">Платівки</li>
+                    <li onclick="applyFilter('currency', 'Валюта')">Валюта</li>
+                    <li onclick="applyFilter('other', 'Інше')">Інше</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- СІТКА ТОВАРІВ -->
+    <div class="mc-shop-grid" id="shop-grid">
+        <!-- Картки генеруються тут -->
+    </div>
+</div>
+
+
+    <footer class="mc-official">
+    <!-- 1. ВЕРХНЯ ПАНЕЛЬ: FOLLOW -->
+    <div class="mc-follow-bar">
+        <div class="mc-container">
+            <p>Підпишіться на WILDECHO</p>
+            <div class="mc-social-icons">
+                <a href="/error/404.html"><i class="fab fa-youtube"></i></a>
+                <a href="/error/404.html"><i class="fab fa-instagram"></i></a>
+                <a href="/error/404.html"><i class="fab fa-facebook-f"></i></a>
+                <a href="/error/404.html"><i class="fab fa-x-twitter"></i></a>
+                <a href="/error/404.html"><i class="fab fa-tiktok"></i></a>
+                <a href="https://discord.gg/8czPtjznUk"><i class="fab fa-discord"></i></a>
+                <a href="/error/404.html"><i class="fab fa-telegram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. ОСНОВНИЙ КОНТЕНТ -->
+    <div class="mc-main-body">
+        <div class="mc-container mc-main-grid">
+            
+            <!-- Логотипи -->
+            <div class="mc-branding">
+                <div class="mc-logos">
+                    <img src="/assets/img/preview-image.jpg" alt="Studios">
+                    <div class="xbox-style">
+                        <span>WILDECHO<br>GAME STUDIOS</span>
+                    </div>
+                </div>
+                <p class="mc-copyright">© 2026 WildEcho AB. TM Microsoft Corporation.</p>
+                <p>WildEcho не є офіційним продуктом Mojang Studios.
+                Не схвалено та не пов'язано з Mojang або Microsoft.</p>
+                <div class="mc-brand-links">
+                    <a href="/legal/terms-of-use.html">Умови використання</a> | <a href="/legal/manage-consent.html">Керування згодою</a>
+                </div>
+            </div>
+
+            <!-- Колонки посилань -->
+            <div class="mc-links">
+                <div class="mc-col">
+                    <h3>Магазин</h3>
+                    <a href="/shop/donate.html">Донат <svg width="20px" height="20px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs> <style>.cls-1{fill:#414042;}.cls-2{fill:#fff200;}.cls-3{fill:#ffbe00;}.cls-4{fill:#231f20;}</style> </defs> <title></title> <g id="gifts"> <rect class="cls-1" height="22" rx="3" width="40" x="12" y="18"></rect> <path class="cls-2" d="M50,11H14a2,2,0,0,0-2,2v8H52V13A2,2,0,0,0,50,11Z"></path> <path class="cls-1" d="M32,9.23V11H28.39L26.48,7.94A2,2,0,0,0,24.78,7H24a2,2,0,0,0,0,4H18.35a5.79,5.79,0,0,1-.21-3.24A6.3,6.3,0,0,1,24.36,3h.42a6,6,0,0,1,5.09,2.82Z"></path> <path class="cls-3" d="M50,11H32V21H52V13A2,2,0,0,0,50,11Z"></path> <path class="cls-4" d="M52,21V37a3,3,0,0,1-3,3H32V21Z"></path> <path class="cls-4" d="M45.65,11H40a2,2,0,0,0,0-4h-.78a2,2,0,0,0-1.7.94L35.61,11H32V9.23l2.13-3.41A6,6,0,0,1,39.22,3h.42a6.3,6.3,0,0,1,6.22,4.76A5.79,5.79,0,0,1,45.65,11Z"></path> <rect class="cls-1" height="20" rx="2.45" width="28" x="4" y="40"></rect> <rect class="cls-4" height="10" rx="2.45" width="28" x="32" y="50"></rect> <rect class="cls-3" height="10" rx="2.45" width="24" x="32" y="40"></rect> </g> </g></svg></a>
+                    <a href="/shop/certificates.html">Сертифікати <svg width="20px" height="20px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs> <style>.cls-1{fill:#414042;}.cls-2{fill:#231f20;}.cls-3{fill:#fff200;}.cls-4{fill:#ffbe00;}</style> </defs> <title></title> <g id="gift"> <rect class="cls-1" height="51" rx="5" width="58" x="3" y="7"></rect> <path class="cls-2" d="M61,12V53a5,5,0,0,1-5,5H26V7H56A5,5,0,0,1,61,12Z"></path> <path class="cls-3" d="M61,30H37.28A6.64,6.64,0,0,0,38,27a7.09,7.09,0,0,0-6-6.88A7.31,7.31,0,0,0,30.67,20H29.33a7.55,7.55,0,0,0-3.33.77V7H22V20.77A7.55,7.55,0,0,0,18.67,20H17.33A7.18,7.18,0,0,0,10,27a6.64,6.64,0,0,0,.72,3H3v4H19.23c-2.31,2.12-4.85,4-6.23,4a2,2,0,0,0,0,4c2.84,0,6.38-2.67,9-5.1V58h4V36.9c2.62,2.43,6.16,5.1,9,5.1a2,2,0,0,0,0-4c-1.3,0-3.8-1.76-6.24-4H61ZM22,30H17.33A3.19,3.19,0,0,1,14,27a3.19,3.19,0,0,1,3.33-3h1.34A3.19,3.19,0,0,1,22,27Zm10-.26a3.47,3.47,0,0,1-1.33.26H26V27a3.19,3.19,0,0,1,3.33-3h1.34a3.47,3.47,0,0,1,1.33.26,2.88,2.88,0,0,1,0,5.48Z"></path> <path class="cls-4" d="M61,34H28.76c2.44,2.24,4.94,4,6.24,4a2,2,0,0,1,0,4c-2.84,0-6.38-2.67-9-5.1V30h4.67A3.47,3.47,0,0,0,32,29.74a2.88,2.88,0,0,0,0-5.48A3.47,3.47,0,0,0,30.67,24H29.33A3.19,3.19,0,0,0,26,27V20.77A7.55,7.55,0,0,1,29.33,20h1.34a7.31,7.31,0,0,1,1.33.12A7.09,7.09,0,0,1,38,27a6.64,6.64,0,0,1-.72,3H61Z"></path> </g> </g></svg></a>
+                    <a href="/shop/outher.html">Інше <svg width="20px" height="20px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs> <style>.cls-1{fill:#fff200;}.cls-2{fill:#ffbe00;}.cls-3{fill:#231f20;}.cls-4{fill:#414042;}</style> </defs> <title></title> <g id="ribbon"> <path class="cls-1" d="M41.56,32.75A2,2,0,0,0,40,32H24a2,2,0,0,0-1.56.74C22.09,33.18,14,43.4,14,52v5a2,2,0,0,0,2,2h8a2,2,0,0,0,2-2V53a17.43,17.43,0,0,1,6-13.49A17.41,17.41,0,0,1,38,53v4a2,2,0,0,0,2,2h8a2,2,0,0,0,2-2V52C50,43.4,41.91,33.18,41.56,32.75Z"></path> <path class="cls-2" d="M50,52v5a2,2,0,0,1-2,2H40a2,2,0,0,1-2-2V53a17.41,17.41,0,0,0-6-13.49V32h8a2,2,0,0,1,1.56.74C41.91,33.18,50,43.4,50,52Z"></path> <path class="cls-3" d="M60,14.21a4.7,4.7,0,0,0-6.31-2.8,48,48,0,0,0-15.92,8A2,2,0,0,0,37,21h0V34h1a2,2,0,0,0,.76,1.58c9.29,7.23,15.64,8.35,15.9,8.39A1.84,1.84,0,0,0,55,44c2.08,0,4.19-.24,5.22-3.1C61.09,38.47,62,32.61,62,27A44.81,44.81,0,0,0,60,14.21Z"></path> <path class="cls-4" d="M45,30H40a2,2,0,0,1,0-4h5a2,2,0,0,1,0,4Z"></path> <path class="cls-4" d="M2,27c0,5.61.91,11.47,1.78,13.9C4.81,43.76,6.92,44,9,44a1.84,1.84,0,0,0,.33,0c.26,0,6.61-1.16,15.9-8.39A2,2,0,0,0,26,34h1V21h0a2,2,0,0,0-.79-1.6,48,48,0,0,0-15.92-8A4.7,4.7,0,0,0,4,14.21,44.81,44.81,0,0,0,2,27Z"></path> <path class="cls-3" d="M19,30h5a2,2,0,0,0,0-4H19a2,2,0,0,0,0,4Z"></path> <path class="cls-4" d="M41.16,33.48,39.94,17.82A6.26,6.26,0,0,0,34,12H30.2c-3,0-5.58,2.56-5.95,6l-1.2,15.38a7.57,7.57,0,0,0,1.34,5.16A5.7,5.7,0,0,0,29,41h6.2a5.73,5.73,0,0,0,4.62-2.46A7.52,7.52,0,0,0,41.16,33.48Z"></path> <path class="cls-3" d="M39.82,38.54A5.73,5.73,0,0,1,35.2,41H32V12h2a6.26,6.26,0,0,1,5.94,5.82l1.22,15.66A7.52,7.52,0,0,1,39.82,38.54Z"></path> </g> </g></svg></a>
+                    <a href="/shop/promotions.html" class="green-link">Акції <svg width="20px" height="20px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs> <style>.cls-1{fill:#414042;}.cls-2{fill:#231f20;}.cls-3{fill:#fff200;}.cls-4{fill:#ffbe00;}</style> </defs> <title></title> <g id="black-friday"> <path class="cls-1" d="M54,8H10a5,5,0,0,0-5,5V55a5,5,0,0,0,5,5H54a5,5,0,0,0,5-5V13A5,5,0,0,0,54,8Z"></path> <path class="cls-2" d="M59,13V55a5,5,0,0,1-5,5H32V8H54A5,5,0,0,1,59,13Z"></path> <path class="cls-3" d="M50,6v8a2,2,0,0,1-4,0V6a2,2,0,0,1,4,0Z"></path> <path class="cls-3" d="M34,6v8a2,2,0,0,1-1.83,2H32a2,2,0,0,1-2-2V6a2,2,0,0,1,2-2h.17A2,2,0,0,1,34,6Z"></path> <path class="cls-3" d="M16,16a2,2,0,0,0,2-2V6a2,2,0,0,0-4,0v8A2,2,0,0,0,16,16Z"></path> <path class="cls-4" d="M34,14V6a2,2,0,0,0-1.83-2V16A2,2,0,0,0,34,14Z"></path> <path class="cls-4" d="M48,4a2,2,0,0,0-2,2v8a2,2,0,0,0,4,0V6A2,2,0,0,0,48,4Z"></path> <path class="cls-3" d="M42.41,29.41,32,39.82l-8.59,8.59a2,2,0,0,1-2.82-2.82L32,34.18l7.59-7.59a2,2,0,0,1,2.82,2.82Z"></path> <path class="cls-3" d="M24.5,36A5.5,5.5,0,1,0,19,30.5,5.51,5.51,0,0,0,24.5,36Zm0-7A1.5,1.5,0,1,1,23,30.5,1.5,1.5,0,0,1,24.5,29Z"></path> <path class="cls-3" d="M38.5,39A5.5,5.5,0,1,0,44,44.5,5.51,5.51,0,0,0,38.5,39Zm0,7A1.5,1.5,0,1,1,40,44.5,1.5,1.5,0,0,1,38.5,46Z"></path> <path class="cls-4" d="M42.41,26.59a2,2,0,0,0-2.82,0L32,34.18v5.64L42.41,29.41A2,2,0,0,0,42.41,26.59Z"></path> <path class="cls-4" d="M38.5,39A5.5,5.5,0,1,0,44,44.5,5.51,5.51,0,0,0,38.5,39Zm0,7A1.5,1.5,0,1,1,40,44.5,1.5,1.5,0,0,1,38.5,46Z"></path> </g> </g></svg></a>
+                </div>
+                <div class="mc-col">
+                    <h3>Інформація</h3>
+                    <a href="/legal/faq.html">FAQ</a>
+                    <a href="/legal/how-to-bay.html">Як купити</a>
+                    <a href="/legal/payment-methods.html">Способи оплати</a>
+                    <a href="/legal/refunds.html">Повернення коштів</a>
+                </div>
+                <div class="mc-col">
+                    <h3>Підтримка</h3>
+                    <a href="https://discord.gg/H3ynfWmBzb">Створити тікет</a>
+                    <a href="https://discord.gg/8czPtjznUk">Зв'язатися з адміністрацією</a>
+                    <a href="https://discord.gg/H3ynfWmBzb">Повідомити про проблему</a>
+                </div>
+            </div>
+
+            <!-- Плашка оплати (замість рейтингу ESRB) -->
+            <div class="mc-rating-box">
+                <div class="rating-content">
+                    <div class="rating-left">
+                        <span class="rating-letter">P</span>
+                        <span class="rating-plus">PAY</span>
+                    </div>
+                    <div class="rating-right">
+                        <p>Automatic Delivery</p>
+                        <hr>
+                        <p>Visa,
+Mastercard,
+Apple Pay,
+Google Pay,
+Privat24,
+Mono,
+LiqPay</p>
+                    </div>
+                </div>
+                <div class="rating-footer">
+                    Secure Payments / SSL Encrypted
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. НИЖНЯ ПАНЕЛЬ -->
+    <div class="mc-bottom-bar">
+        <div class="mc-container mc-flex-bottom">
+            <div class="mc-lang">
+                <i class="fas fa-globe"></i> Ukrainian
+            </div>
+            <div class="mc-legal">
+                <a href="/legal/privacy-and-cookies.html">Privacy & Cookies</a>
+                <a href="/legal/terms-of-use.html">Terms of use</a>
+                <a href="/legal/trademarks.html">Trademarks</a>
+                <span>© 2026 WildEcho. Всі права захищені.</span>
+            </div>
+            <div class="mc-ms-logo">
+                WildEcho
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+const shopData = {
+    ranks: [
+        { id: "timber", title: "Timber", price: "74.99", img: "assets/img/timber-for-shop.jpg", url: "shop/timber-details.html" },
+        { id: "fly", title: "Fly", price: "174.99", img: "assets/img/fly-for-shop.jpg", url: "shop/fly-details.html" },
+        { id: "vanish", title: "Vanish", price: "229.99", img: "assets/img/vanish-for-shop.jpg", url: "shop/vanish-details.html" },
+        { id: "creative", title: "Creative Access", price: "699.99", img: "assets/img/creative-access-for-shop.jpg", url: "shop/creative-details.html" }
+     ],
+    disc: [
+        { id: "disc", title: "Замовити Платівку", price: "29.99", img: "assets/img/disc-for-shop.jpg", url: "shop/discs.html" }
+    ],
+    currency: [
+        { id: "copper", title: "x20 Мідних карбованців", price: "4.99", img: "assets/img/copper.jpg", url: "shop/copper-coin.html?id=x20copper" },
+        { id: "copper", title: "x200 Мідних карбованців", price: "44.99", img: "assets/img/copper.jpg", url: "shop/copper-coin.html?id=x200copper" },
+        { id: "silver", title: "x20 Срібних карбованців", price: "49.99", img: "assets/img/silver.jpg", url: "shop/silver-coin.html?id=x20silver" },
+        { id: "silver", title: "x200 Срібних карбованців", price: "499.99", img: "assets/img/silver.jpg", url: "shop/silver-coin.html?id=x200silver" },
+        { id: "gold", title: "x20 Гривня-Коінів", price: "99.99", img: "assets/img/gold-money.jpg", url: "shop/hrn-coin.html?id=x20gold" },
+        { id: "gold", title: "x200 Гривня-Коінів", price: "799.99", img: "assets/img/gold-money.jpg", url: "shop/hrn-coin.html?id=x200gold" }
+    ],
+    other: [
+        { id: "unban", title: "Розбан", price: "449.99", img: "assets/img/unban-or-unmute.jpg", url: "shop/unban.html" },
+        { id: "unmute", title: "Розмут", price: "449.99", img: "assets/img/unban-or-unmute.jpg", url: "shop/unmute.html" },
+        { id: "gift-card", title: "Подарунковий сертифікат", author: "WildEcho", price: "100+", img: "/assets/img/certificate-on-sto.jpg", url: "shop/certificates.html" }
+    ]
+};
+
+function toggleDropdown() {
+    document.getElementById('mc-dropdown').classList.toggle('active');
+}
+
+// Функція вибору категорії
+function applyFilter(catKey, label) {
+    // 1. Змінюємо текст на кнопці
+    document.getElementById('selected-label').innerText = label.toUpperCase();
+    
+    // 2. Закриваємо меню
+    document.getElementById('mc-dropdown').classList.remove('active');
+    
+    // 3. Очищуємо пошук, якщо вибираємо категорію
+    if (document.getElementById('shop-search')) {
+        document.getElementById('shop-search').value = "";
+    }
+
+    // 4. Викликаємо твою функцію рендеру товарів
+    if (typeof renderProducts === "function") {
+        renderProducts(catKey);
+    }
+}
+
+// Закриття меню, якщо клікнули в іншому місці
+window.addEventListener('click', function(e) {
+    if (!document.getElementById('mc-dropdown').contains(e.target)) {
+        document.getElementById('mc-dropdown').classList.remove('active');
+    }
+});
+
+function renderProducts(category) {
+    const grid = document.getElementById('shop-grid');
+    grid.innerHTML = '';
+
+    const keys = category === 'all' ? Object.keys(shopData) : [category];
+
+    keys.forEach(key => {
+        shopData[key].forEach(item => {
+            // МІНЯЄМО href="${item.url}"
+            grid.innerHTML += `
+                <a href="${item.url}" class="product-card">
+                    <div class="pc-img" style="background-image: url('${item.img}')">
+                        <span class="sale-tag">ON SALE</span>
+                    </div>
+                    <div class="pc-info">
+                        <h3>${item.title}</h3>
+                        <div class="pc-meta"><i class="fas fa-hammer"></i> ${key.toUpperCase()} by WildEcho</div>
+                        <div class="pc-footer">
+                            <div class="pc-price">₴ ${item.price}</div>
+                        </div>
+                    </div>
+                </a>`;
+        });
+    });
+}
+
+function handleSearch() {
+    const query = document.getElementById('shop-search').value.toLowerCase();
+    const grid = document.getElementById('shop-grid');
+    const countLabel = document.getElementById('res-count');
+    
+    // Якщо поле пошуку порожнє, повертаємо всі товари
+    if (query === "") {
+        renderProducts('all');
+        return;
+    }
+
+    grid.innerHTML = ''; // Очищуємо сітку для результатів
+    let count = 0;
+
+    // Скидаємо назву в селекті (якщо потрібно)
+    document.getElementById('selected-label').innerText = "SEARCH RESULTS";
+
+    // Проходимо по всіх категоріях у твоїй базі даних
+    Object.keys(shopData).forEach(category => {
+        shopData[category].forEach(item => {
+            // Перевіряємо, чи містить назва товару текст із пошуку
+            if (item.title.toLowerCase().includes(query)) {
+                count++;
+                grid.innerHTML += `
+                    <a href="pay.html?id=${item.id}" class="product-card">
+                        <div class="pc-img" style="background-image: url('${item.img}')">
+                            <span class="sale-tag">ON SALE</span>
+                        </div>
+                        <div class="pc-info">
+                            <h3>${item.title}</h3>
+                            <div class="pc-meta"><i class="fas fa-hammer"></i> ${category.toUpperCase()} by WildEcho</div>
+                            <div class="pc-footer">
+                                <div class="pc-price">₴ ${item.price}</div>
+                            </div>
+                        </div>
+                    </a>`;
+            }
+        });
+    });
+
+    // Оновлюємо кількість знайдених результатів
+    countLabel.innerText = count;
+
+    // Якщо нічого не знайдено
+    if (count === 0) {
+        grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 50px; color: #666;">
+            Нічого не знайдено за запитом "${query}"
+        </div>`;
+    }
+}
+
+// Закриття при кліку повз
+window.onclick = (e) => {
+    if (!e.target.closest('.mc-dropdown')) {
+        document.getElementById('mc-dropdown').classList.remove('active');
+    }
+};
+
+window.onload = () => renderProducts('all');
+</script>
+</body>
+</html>

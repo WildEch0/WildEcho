@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Політика повернення коштів | Wild Echo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        /* =========================================
+           1. ОСНОВНІ НАЛАШТУВАННЯ
+           ========================================= */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --mc-red: #ff4444;
+            --mc-orange: #ff9900;
+            --mc-green: #3c8527;
+            --mc-gray: #aaaaaa;
+            --bg-dark: #000000;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            padding-bottom: 100px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* =========================================
+           2. НАВІГАЦІЯ
+           ========================================= */
+        .navbar {
+            background-color: #111;
+            border-bottom: 2px solid #333;
+            padding: 20px 0;
+            margin-bottom: 60px;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-logo {
+            font-family: Impact, sans-serif;
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .menu-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        /* =========================================
+           3. ТЕКСТОВИЙ КОНТЕНТ (REFUND STYLE)
+           ========================================= */
+        
+        h1 {
+            font-family: 'VT323', monospace;
+            font-size: 44px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .last-update {
+            font-family: 'VT323', monospace;
+            color: var(--mc-gray);
+            font-size: 18px;
+            margin-bottom: 40px;
+            display: block;
+        }
+
+        .intro-box {
+            background: #111;
+            padding: 25px;
+            border-left: 4px solid var(--mc-orange);
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-family: 'VT323', monospace;
+            font-size: 32px;
+            text-transform: uppercase;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            border-bottom: 1px solid #222;
+            padding-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #eeeeee;
+        }
+
+        /* Списки */
+        .mc-list {
+            list-style: none;
+            margin: 20px 0 30px 0;
+        }
+
+        .mc-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: #ddd;
+        }
+
+        .mc-list li::before {
+            content: '■';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 12px;
+        }
+
+        /* Кольорові маркери */
+        .list-warning li::before { color: var(--mc-orange); }
+        .list-danger li::before { color: var(--mc-red); }
+        .list-info li::before { color: var(--mc-green); }
+
+        /* Блоки з рамками */
+        .alert-box {
+            padding: 25px;
+            border: 2px solid #222;
+            margin: 30px 0;
+        }
+
+        .alert-danger {
+            background: rgba(255, 68, 68, 0.05);
+            border-color: var(--mc-red);
+        }
+
+        .alert-danger strong { color: var(--mc-red); }
+
+        /* CTA */
+        .discord-cta {
+            margin-top: 80px;
+            text-align: center;
+            padding: 50px;
+            background: #0a0a0a;
+            border: 1px solid #222;
+        }
+
+        .btn-discord {
+            display: inline-block;
+            background: #5865F2;
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 40px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-top: 15px;
+            border-bottom: 5px solid #3a45c3;
+            transition: 0.2s;
+        }
+
+        .btn-discord:hover {
+            transform: translateY(-3px);
+            background: #6a77f5;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">WILDECHO</a>
+            <div class="menu-links">
+                <a href="../index.html">Головна</a>
+                <a href="../shop.html">Магазин</a>
+                <a href="index.html">Legal</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        
+        <h1 class="vt-font">Політика повернення коштів</h1>
+        <span class="last-update">Останнє оновлення: 25 липня 2026 року</span>
+        
+        <div class="intro-box">
+            Дякуємо за підтримку <strong>Wild Echo</strong>! Перед здійсненням покупки рекомендуємо уважно ознайомитися з нашою політикою повернення коштів.
+        </div>
+
+        <h2 class="vt-font">Цифрові товари</h2>
+        <p>Усі товари, що продаються в магазині Wild Echo, є цифровими. Після успішної активації або видачі привілеї, предмета, послуги чи іншого цифрового контенту повернення коштів, як правило, <strong>не здійснюється</strong>.</p>
+
+        <h2 class="vt-font">Коли можливе повернення?</h2>
+        <p>Ми можемо розглянути запит на повернення коштів у таких випадках:</p>
+        <ul class="mc-list list-info">
+            <li>Платіж було списано, але товар не був виданий з нашої вини;</li>
+            <li>Сталася технічна помилка, через яку замовлення неможливо виконати;</li>
+            <li>Сталася подвійна або помилкова оплата одного й того самого товару.</li>
+        </ul>
+        <p>Кожен випадок розглядається індивідуально адміністрацією Wild Echo.</p>
+
+        <h2 class="vt-font" style="color: var(--mc-red);">Коли повернення не здійснюється?</h2>
+        <div class="alert-box alert-danger">
+            <p>Повернення коштів <strong>не проводиться</strong>, якщо:</p>
+            <ul class="mc-list list-danger" style="margin-bottom: 0;">
+                <li>Товар уже був успішно виданий або активований;</li>
+                <li>Ви помилково обрали інший товар;</li>
+                <li>Ви неправильно вказали нікнейм Minecraft;</li>
+                <li>Ви більше не бажаєте користуватися придбаним товаром;</li>
+                <li><strong>Вас було покарано або заблоковано на сервері за порушення правил після покупки.</strong></li>
+            </ul>
+        </div>
+
+        <h2 class="vt-font">Як подати запит?</h2>
+        <p>Якщо ви вважаєте, що маєте право на повернення коштів:</p>
+        <ul class="mc-list list-warning">
+            <li>Створіть тікет у нашому офіційному Discord;</li>
+            <li>Детально опишіть проблему;</li>
+            <li>Додайте підтвердження оплати або чек від Donatello;</li>
+            <li>Вкажіть дату та точний час платежу.</li>
+        </ul>
+        <p>Адміністрація розгляне ваше звернення та повідомить результат після технічної перевірки логів.</p>
+
+        <h2 class="vt-font">Терміни розгляду</h2>
+        <p>Ми намагаємося розглядати всі звернення якомога швидше. Зазвичай відповідь надається протягом 24-72 годин, проте час розгляду залежить від складності ситуації.</p>
+
+        <h2 class="vt-font">Важлива інформація</h2>
+        <p>Оплата товарів здійснюється через сервіс <strong>Donatello</strong>. Якщо проблема пов'язана безпосередньо з технічним збоєм на боці платіжного сервісу, адміністрація може попросити вас надати додаткову інформацію для верифікації транзакції.</p>
+
+        <section class="discord-cta">
+            <h2 class="vt-font" style="margin-top: 0; border: none;">Маєте запитання?</h2>
+            <p>Якщо у вас виникли будь-які запитання щодо цієї політики або вашого замовлення, зверніться до нас.</p>
+            <a href="https://discord.gg/nBhVTp8xD9" class="btn-discord">Відкрити тікет у Discord</a>
+        </section>
+
+    </main>
+
+</body>
+</html>

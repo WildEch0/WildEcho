@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Умови використання | Wild Echo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        /* =========================================
+           1. ГЛОБАЛЬНІ НАЛАШТУВАННЯ
+           ========================================= */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --mc-blue: #00a8f3;
+            --mc-green: #3c8527;
+            --mc-gray: #aaaaaa;
+            --bg-dark: #0d0d0d;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: url('https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/realms/bedrock-bg.png');
+            background-size: 100px;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            padding-bottom: 100px;
+        }
+
+        .vt-font { font-family: 'VT323', monospace; text-transform: uppercase; }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* =========================================
+           2. НАВІГАЦІЯ
+           ========================================= */
+        .navbar {
+            background-color: #111;
+            border-bottom: 3px solid var(--mc-blue);
+            padding: 15px 0;
+            margin-bottom: 60px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: Impact, sans-serif;
+            font-size: 24px;
+            color: #fff !important;
+            text-decoration: none !important;
+        }
+
+        .menu-links a {
+            color: #fff !important;
+            text-decoration: none !important;
+            margin-left: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        /* =========================================
+           3. ТЕКСТОВИЙ КОНТЕНТ (OFFICIAL TERMS STYLE)
+           ========================================= */
+        
+        .terms-header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-top: 40px;
+        }
+
+        h1 {
+            font-size: 52px;
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(0, 168, 243, 0.3);
+        }
+
+        .update-tag {
+            font-size: 14px;
+            color: var(--mc-gray);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .intro-block {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid #222;
+            padding: 30px;
+            margin-bottom: 50px;
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        /* Секції умов */
+        .terms-section {
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        h2 {
+            font-size: 32px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #222;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #eee;
+        }
+
+        /* Списки */
+        .mc-list {
+            list-style: none;
+            margin: 20px 0 30px 20px;
+        }
+
+        .mc-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: #ddd;
+        }
+
+        .mc-list li::before {
+            content: '■';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--mc-blue);
+            font-size: 12px;
+        }
+
+        /* Акцентні слова */
+        strong {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        /* Посилання */
+        .legal-link {
+            color: var(--mc-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .legal-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Фінальний блок */
+        .terms-footer {
+            margin-top: 80px;
+            padding: 40px;
+            background: #0a0a0a;
+            border: 2px solid #1a1a1a;
+            text-align: center;
+        }
+
+        .thanks-msg {
+            font-family: 'VT323', monospace;
+            font-size: 24px;
+            color: var(--mc-green);
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container container">
+            <a href="../index.html" class="nav-logo">WILDECHO</a>
+            <div class="menu-links">
+                <a href="../index.html">Головна</a>
+                <a href="../shop.html">Магазин</a>
+                <a href="index.html">Юридичний центр</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        
+        <header class="terms-header">
+            <h1 class="vt-font">Умови використання</h1>
+            <span class="update-tag">Останнє оновлення: 25 липня 2026 року</span>
+        </header>
+        
+        <div class="intro-block">
+            Ласкаво просимо до <strong>Wild Echo</strong>. Використовуючи наш сайт, магазин та пов'язані сервіси, ви підтверджуєте, що ознайомилися з цими Умовами використання та погоджуєтеся їх дотримуватися.
+        </div>
+
+        <section class="terms-section">
+            <h2 class="vt-font">1. Прийняття умов</h2>
+            <p>Відвідуючи сайт або використовуючи будь-які його функції, ви автоматично погоджуєтеся з цими Умовами використання, Політикою конфіденційності та іншими документами, розміщеними на сайті.</p>
+            <p>Якщо ви не погоджуєтеся з будь-якою частиною цих умов, рекомендуємо припинити використання сайту.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2 class="vt-font">2. Використання сайту</h2>
+            <p>Ви можете використовувати сайт лише для законних цілей та відповідно до чинного законодавства.</p>
+            <p>Під час використання сайту <strong>забороняється:</strong></p>
+            <ul class="mc-list">
+                <li>порушувати його роботу або безпеку;</li>
+                <li>намагатися отримати несанкціонований доступ до будь-яких систем чи даних;</li>
+                <li>використовувати автоматизовані засоби (боти, скрепери) без дозволу адміністрації;</li>
+                <li>розповсюджувати матеріали, що можуть завдати шкоди іншим користувачам.</li>
+            </ul>
+        </section>
+
+        <section class="terms-section">
+            <h2 class="vt-font">3. Покупки</h2>
+            <p>Покупки цифрових товарів оформлюються через офіційний <a href="#" class="legal-link">Discord Wild Echo</a>, а оплата здійснюється за допомогою сервісу <strong>Donatello</strong>.</p>
+            <p>Перед оформленням замовлення користувач зобов'язаний перевірити правильність зазначеного нікнейма Minecraft та інших наданих даних. Адміністрація не несе відповідальності за помилки користувача.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2 class="vt-font">4. Цифрові товари</h2>
+            <p>Усі товари, що продаються в магазині, є цифровими активами та призначені для використання виключно в межах проєкту Wild Echo.</p>
+            <p>Після успішної видачі товару в грі або активації послуги замовлення вважається виконаним у повному обсязі.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2 class="vt-font">5. Інтелектуальна власність</h2>
+            <p>Усі елементи сайту, включаючи дизайн, програмний код, тексти, логотипи та графіку, є власністю <strong>Wild Echo</strong> або використовуються на законних підставах.</p>
+            <p>Будь-яке копіювання чи поширення цих матеріалів без попереднього дозволу адміністрації заборонене.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2 class="vt-font">6. Відмова від гарантій</h2>
+            <p>Ми прагнемо забезпечити безперебійну роботу сайту, однак не гарантуємо його постійну 100% доступність або повну відсутність технічних помилок.</p>
+            <p>У разі проведення планових технічних робіт окремі функції можуть бути тимчасово недоступними.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2 class="vt-font">7. Обмеження відповідальності</h2>
+            <p>Wild Echo не несе відповідальності за:</p>
+            <ul class="mc-list">
+                <li>перебої в роботі сторонніх сервісів (платіжних систем, провайдерів);</li>
+                <li>затримки в обробці платежів з боку сервісу Donatello;</li>
+                <li>збитки, спричинені порушенням користувачем правил сервера.</li>
+            </ul>
+        </section>
+
+        <section class="terms-section">
+            <h2 class="vt-font">8. Зміни умов</h2>
+            <p>Ми залишаємо за собою право змінювати або оновлювати ці Умови використання в будь-який час без попереднього індивідуального повідомлення.</p>
+            <p>Оновлена версія документа набирає чинності з моменту її публікації на цій сторінці.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2 class="vt-font">9. Контактна інформація</h2>
+            <p>Якщо у вас виникли запитання щодо цих Умов використання, ви можете звернутися до адміністрації Wild Echo через наш офіційний <a href="https://discord.gg/nBhVTp8xD9" class="legal-link">Discord-сервер</a>.</p>
+        </section>
+
+        <footer class="terms-footer">
+            <p class="thanks-msg">Дякуємо за використання Wild Echo!</p>
+            <p style="color: #666; font-size: 13px;">Ми прагнемо зробити сервер і магазин безпечними, чесними та зручними для кожного гравця.</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>

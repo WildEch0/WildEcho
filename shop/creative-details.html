@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Access | Wild Echo</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=VT323&display=swap" rel="stylesheet">
+    <style>
+/* =========================================
+   1. ГЛОБАЛЬНІ НАЛАШТУВАННЯ
+   ========================================= */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --neon-pink: #ff00ff;
+    --neon-purple: #9d4edd;
+    --mc-purple: #7b2cbf;
+    --mc-purple-dark: #5a189a;
+}
+
+body {
+    background-color: #0d0d0d;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+.vt-font { font-family: 'VT323', monospace; text-transform: uppercase; }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* =========================================
+   2. HERO СЕКЦІЯ (ВЕРХНЯ ЧАСТИНА)
+   ========================================= */
+.realms-hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), 
+                      url('/assets/img/creative-access-for-shop.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Лого зверху, картка знизу */
+    height: 100%;
+    flex-grow: 1;
+    padding: 60px 0;
+}
+
+/* Щоб головний заголовок лишився зверху по центру і не злетів */
+.realms-logo-box {
+    position: absolute !important;
+    top: 60px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: auto !important;
+    text-align: center !important;
+    z-index: 10;
+}
+
+.mc-small-label {
+    display: block;
+    font-size: 22px;
+    color: var(--neon-pink);
+    letter-spacing: 10px;
+    text-shadow: 0 0 10px var(--neon-pink);
+}
+
+.realms-title-neon {
+    font-size: clamp(60px, 10vw, 110px);
+    color: #fff;
+    line-height: 0.8;
+    text-shadow: 0 0 20px var(--neon-pink), 0 0 40px var(--neon-pink);
+}
+
+/* Контейнер, який тримає табличку */
+.hero-float-content {
+    display: flex !important;
+    justify-content: flex-start !important; /* ПРИТИСНУТИ ВЛІВО */
+    align-items: flex-end !important;       /* ПРИТИСНУТИ ВНИЗ */
+    width: 100% !important;
+    height: 100% !important;
+    padding-left: 5% !important;            /* Відступ від лівого краю екрана */
+    padding-bottom: 50px !important;        /* Відступ від низу */
+    position: absolute !important;          /* Щоб не залежало від заголовка */
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+}
+
+/* Сама табличка */
+.info-overlay {
+    background: #1a1a1a !important;
+    width: 450px !important;
+    padding: 40px !important;
+    border: 1px solid #333 !important;
+    border-top: 3px solid #444 !important;
+    box-shadow: 15px 15px 0px rgba(0,0,0,0.7) !important;
+    
+    /* Скидаємо всі автоматичні центрування */
+    margin: 0 !important; 
+    text-align: left !important;
+}
+
+.info-overlay h2 {
+    font-size: 48px;
+    line-height: 0.9;
+    margin-bottom: 20px;
+}
+
+.info-overlay p {
+    color: #ccc;
+    margin-bottom: 35px;
+}
+
+/* Фіолетова кнопка */
+.btn-purple {
+    background: var(--mc-purple);
+    color: #fff !important;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    font-weight: 900;
+    font-size: 20px;
+    border-bottom: 6px solid var(--mc-purple-dark);
+    transition: 0.2s;
+}
+
+.btn-purple:hover {
+    background: #9d4edd;
+    transform: translateY(-2px);
+}
+
+.link-tutorial {
+    color: var(--neon-purple);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+/* ВИПРАВЛЕННЯ ПОЗИЦІЇ ТАБЛИЧКИ */
+
+.hero-float-content {
+    display: flex;
+    justify-content: flex-start; /* Притискаємо контент до лівого краю */
+    align-items: flex-end;       /* Лишаємо знизу */
+    width: 100%;
+    max-width: 1200px;           /* Обмежуємо ширину, щоб табличка не прилипла до самого краю монітора */
+    margin: 0 auto;              /* Центруємо сам контейнер */
+    padding-bottom: 50px;        /* Відступ від низу екрана */
+}
+
+/* Якщо є персонажі, вони не повинні перекривати текст */
+.floating-chars {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 60%;
+    z-index: 1;                  /* Ставимо за табличку */
+    opacity: 0.8;
+}
+
+/* =========================================
+   3. ПЕРЕХІД ТА РОЗДІЛЮВАЧ
+   ========================================= */
+.section-divider {
+    height: 120px;
+    background: linear-gradient(to bottom, transparent, #05000a 50%, #0d001a);
+    margin-top: -60px;
+    position: relative;
+    z-index: 5;
+}
+
+/* =========================================
+   4. СЕКЦІЯ ПЛАНІВ (OBSIDIAN)
+   ========================================= */
+.obsidian-section {
+    background-color: #0d001a;
+    background-image: url('https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/realms/bedrock-bg.png');
+    background-repeat: repeat;
+    background-size: 100px;
+    padding: 100px 0;
+    position: relative;
+}
+
+/* Частинки на фоні */
+.particles-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+.particle {
+    position: absolute; width: 8px; height: 8px;
+    background: rgba(255, 0, 255, 0.2);
+    animation: floatParticle 10s infinite ease-in-out;
+}
+@keyframes floatParticle { 0%, 100% { transform: translateY(0); opacity: 0.2; } 50% { transform: translateY(-40px); opacity: 0.5; } }
+
+/* Сітка широких карток */
+.plans-wide-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 60px;
+    flex-wrap: wrap;
+}
+
+.plan-card-premium {
+    flex: 1;
+    max-width: 520px;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 1. РАМКА ДЛЯ КАРТИНКИ (ФРЕЙМ) */
+.plan-visual-box {
+    height: 350px;           /* Фіксована висота рамки */
+    background: #000;        /* Чорний фон, щоб острів виділявся */
+    border: 4px solid #333;
+    position: relative;
+    display: flex;           /* Центруємо картинку всередині */
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;        /* Щоб нічого не вилазило */
+}
+
+/* 3. ДОДАТКОВЕ СЯЙВО ЗА ОСТРОВОМ */
+.plan-visual-box::before {
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(157, 78, 221, 0.15) 0%, transparent 70%);
+    z-index: 1;
+}
+
+/* 2. САМА КАРТИНКА ОСТРОВА (НОРМАЛЬНИЙ РОЗМІР) */
+.island-img {
+    height: 85% !important;  /* Острів займає 85% висоти рамки */
+    width: auto !important;  /* Ширина підлаштовується автоматично (без розтягування) */
+    max-width: 90%;          /* Щоб не впиралася в краї по ширині */
+    object-fit: contain;     /* Зберігає пропорції, не обрізає */
+    
+    /* Ефект глибини (тінь під островом) */
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.9)); 
+    
+    transition: transform 0.4s ease;
+    z-index: 2;
+}
+
+/* Стилі для неонових рамок (щоб не пропадали) */
+.neon-pink-glow { border-color: var(--neon-purple); box-shadow: 0 0 30px rgba(157,78,221,0.2); }
+.neon-purple-glow { border-color: var(--neon-pink); box-shadow: 0 0 30px rgba(255,0,255,0.2); }
+
+/* Опис пакетів */
+.plan-details-box {
+    background: #111;
+    padding: 30px;
+    border: 1px solid #222;
+    border-top: none;
+    text-align: left;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.plan-price {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--neon-pink);
+    margin: 10px 0;
+}
+
+/* Кнопка КУПИТИ всередині картки */
+.btn-buy-creative {
+    margin-top: auto;
+    background: var(--mc-purple);
+    color: #fff !important;
+    padding: 15px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 900;
+    border-bottom: 5px solid var(--mc-purple-dark);
+}
+
+/* 4. ЕФЕКТ ПРИ НАВЕДЕННІ НА КАРТКУ */
+.plan-card-premium:hover .island-img {
+    transform: scale(1.05) translateY(-10px); /* Острів трохи "спливає" при наведенні */
+}
+
+.featured-buy { background: var(--neon-pink); border-bottom-color: #c000ab; }
+
+/* Дисклеймер */
+.disclaimer-v2 {
+    margin-top: 60px;
+    font-size: 12px;
+    color: #555;
+    max-width: 900px;
+    margin-inline: auto;
+}
+
+/* АДАПТИВНІСТЬ */
+@media (max-width: 900px) {
+    .hero-float-content { justify-content: center; }
+    .info-overlay { margin-left: 0; }
+    .plans-wide-grid { flex-direction: column; align-items: center; }
+}
+
+/*------------------------------*/
+
+/* 1. ГЛОБАЛЬНІ НАЛАШТУВАННЯ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+
+ 
+
+:root {
+
+    --mc-green: #3c8527;
+
+    --mc-green-hover: #47a12d;
+
+    --gold: #f9d54c;
+
+    --copper: #d35400;
+
+    --bg-dark: #1a1a1a;
+
+}
+
+
+ 
+
+body {
+
+    background-color: #0d0d0d;
+
+    color: #fff;
+
+    font-family: 'Montserrat', sans-serif;
+
+    line-height: 1.5;
+
+    overflow-x: hidden;
+
+}
+
+
+ 
+
+/* Шрифти */
+
+.vt-font { font-family: 'VT323', monospace; text-transform: uppercase; }
+
+
+ 
+
+.container {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 0 20px;
+
+}
+
+
+ 
+
+/* 2. НАВБАР (Виправлення вирівнювання) */
+
+.navbar {
+
+    background-color: #111;
+
+    border-bottom: 3px solid var(--mc-green);
+
+    padding: 15px 0;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+}
+
+
+ 
+
+.nav-container {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 20px;
+
+}
+
+
+ 
+
+.menu-links { display: flex; gap: 20px; align-items: center; }
+
+.menu-links a {
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+
+}
+
+.menu-links a:hover { color: var(--mc-green); }
+
+/*---------------------*/
+
+/* ПАНЕЛЬ ФІЛЬТРІВ */
+
+.news-page-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    padding: 40px 20px;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+}
+
+
+ 
+
+.filter-bar {
+
+    display: flex;
+
+    gap: 40px;
+
+}
+
+
+ 
+
+.filter-trigger {
+
+    background: none;
+
+    border: none;
+
+    color: #fff;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-weight: 900;
+
+    font-size: 14px;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    letter-spacing: 1px;
+
+}
+
+
+ 
+
+.filter-trigger .green { color: #47a02e; }
+
+.filter-trigger:hover .green { text-decoration: underline; }
+
+
+ 
+
+/* ВИПАДАЮЧЕ МЕНЮ */
+
+.filter-wrapper { position: relative; }
+
+
+ 
+
+.dropdown-menu {
+
+    display: none;
+
+    position: absolute;
+
+    top: 100%;
+
+    right: 0;
+
+    background: #111;
+
+    border: 1px solid #333;
+
+    width: 200px;
+
+    z-index: 100;
+
+    margin-top: 10px;
+
+}
+
+
+ 
+
+.dropdown-menu.active { display: block; }
+
+
+ 
+
+.dropdown-item {
+
+    padding: 12px 20px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+
+ 
+
+.dropdown-item:hover { background: #333; color: #47a02e; }
+
+.dropdown-item.active { color: #47a02e; border-left: 3px solid #47a02e; }
+
+
+ 
+
+/* БІЧНА ПАНЕЛЬ (SIDEBAR) */
+
+.sidebar-overlay {
+
+    position: fixed;
+
+    top: 0; right: -400px; /* Схована за екраном */
+
+    width: 400px; height: 100%;
+
+    background: #1a1a1a;
+
+    z-index: 2000;
+
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+
+ 
+
+.sidebar-overlay.active { right: 0; }
+
+
+ 
+
+.sidebar-content { padding: 40px; display: flex; flex-direction: column; height: 100%; }
+
+
+ 
+
+.sidebar-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 40px;
+
+    font-family: 'Impact', sans-serif;
+
+}
+
+
+ 
+
+.close-sidebar { background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; }
+
+
+ 
+
+.filter-group h3 {
+
+    font-size: 12px;
+
+    color: #555;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 20px;
+
+}
+
+
+ 
+
+.mc-check {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 15px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+
+ 
+
+.mc-check input {
+
+    width: 20px; height: 20px;
+
+    accent-color: #47a02e;
+
+}
+
+
+ 
+
+/* КНОПКИ ВНИЗУ */
+
+.sidebar-footer { margin-top: auto; display: flex; gap: 10px; }
+
+
+ 
+
+.mc-btn-clear { flex: 1; background: none; border: 1px solid #444; color: #fff; padding: 12px; font-weight: bold; cursor: pointer; }
+
+.mc-btn-apply { flex: 1; background: #fff; border: none; color: #000; padding: 12px; font-weight: bold; cursor: pointer; }
+
+.mc-btn-apply:hover { background: #47a02e; color: #fff; }
+
+
+ 
+
+/* Кнопка "Застосувати" має ставати зеленою при наведенні */
+
+.mc-btn-apply {
+
+    background-color: #fff;
+
+    color: #000;
+
+    border: none;
+
+    padding: 12px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    text-transform: uppercase;
+
+    transition: 0.2s;
+
+}
+
+
+ 
+
+.mc-btn-apply:hover {
+
+    background-color: #3c8527;
+
+    color: #fff;
+
+}
+
+
+ 
+
+/* Випадаюче меню сортування */
+
+.dropdown-menu {
+
+    display: none;
+
+    position: absolute;
+
+    top: 100%;
+
+    right: 0;
+
+    background: #111;
+
+    border: 1px solid #333;
+
+    width: 220px;
+
+    z-index: 100;
+
+}
+
+
+ 
+
+.dropdown-menu.active { display: block; }
+
+
+ 
+
+.dropdown-item {
+
+    padding: 15px 20px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    border-bottom: 1px solid #222;
+
+}
+
+
+ 
+
+.dropdown-item:hover {
+
+    background: #3c8527;
+
+    color: #fff;
+
+}
+
+
+ 
+
+/* ФУТЕР - ЗАГАЛЬНІ СТИЛІ */
+
+.site-footer {
+
+    background-color: #000;
+
+    color: #fff;
+
+    font-family: 'Montserrat', sans-serif;
+
+    padding-top: 60px;
+
+}
+
+
+ 
+
+.footer-container {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 0 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+}
+
+
+ 
+
+/* ВЕРХНЯ ЧАСТИНА */
+
+.footer-top {
+
+    padding-bottom: 60px;
+
+}
+
+
+ 
+
+.brand-logos {
+
+    display: flex;
+
+    gap: 30px;
+
+    margin-bottom: 20px;
+
+}
+
+
+ 
+
+.footer-logo {
+
+    height: 60px;
+
+}
+
+
+ 
+
+.footer-logo.xbox {
+
+    height: 45px;
+
+    margin-top: 10px;
+
+}
+
+
+ 
+
+.brand-info p {
+
+    font-size: 12px;
+
+    color: #888;
+
+    margin-bottom: 10px;
+
+}
+
+
+ 
+
+.brand-links a {
+
+    color: #3c8527;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    margin-right: 15px;
+
+}
+
+
+ 
+
+.brand-links a:hover { text-decoration: underline; }
+
+
+ 
+
+/* Колонки */
+
+.footer-links {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 40px;
+
+}
+
+
+ 
+
+.footer-col h4 {
+
+    font-size: 18px;
+
+    margin-bottom: 20px;
+
+}
+
+
+ 
+
+.footer-col a {
+
+    display: block;
+
+    color: #3c8527;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+
+    transition: 0.2s;
+
+}
+
+
+ 
+
+.footer-col a:hover { color: #fff; text-decoration: underline; }
+
+
+ 
+
+.footer-rating img {
+
+    height: 120px;
+
+}
+
+
+ 
+
+/* НИЖНЯ ПАНЕЛЬ */
+
+.footer-bottom {
+
+    background-color: #1a1a1a;
+
+    padding: 25px 0;
+
+    border-top: 1px solid #333;
+
+}
+
+
+ 
+
+.footer-bottom .footer-container {
+
+    align-items: center;
+
+}
+
+
+ 
+
+.lang-selector {
+
+    background: none;
+
+    border: 1px solid #444;
+
+    color: #fff;
+
+    padding: 8px 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+}
+
+
+ 
+
+.footer-legal {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+    justify-content: center;
+
+}
+
+
+ 
+
+.footer-legal a, .footer-legal span {
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+}
+
+
+ 
+
+.footer-legal a:hover { text-decoration: underline; }
+
+
+ 
+
+.footer-ms-logo img {
+
+    height: 25px;
+
+}
+
+/*--------------*/
+
+/* КНОПКА "МАЄШ ПИТАННЯ? ПИШИ В DISCORD" */
+.btn-premium-purple, 
+.btn-dark-purple {
+    display: inline-block;            /* Робимо блоком, щоб працювали відступи */
+    background-color: #7120ff !important; /* Яскраво-фіолетовий */
+    color: #ffffff !important;        /* Текст тільки білий */
+    text-decoration: none !important; /* ПРИБИРАЄМО ПІДКРЕСЛЕННЯ */
+    padding: 15px 35px;               /* Розмір кнопки */
+    font-weight: 900;                 /* Жирний шрифт */
+    font-size: 14px;
+    text-transform: uppercase;        /* Тільки великі літери */
+    letter-spacing: 1px;
+    border-bottom: 5px solid #4a148c; /* Темна полоса знизу для 3D ефекту */
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Ефект при наведенні */
+.btn-premium-purple:hover, 
+.btn-dark-purple:hover {
+    background-color: #8344ff !important;
+    transform: translateY(-2px);      /* Кнопка трохи підстрибує */
+    border-bottom: 5px solid #5a189a;
+    color: #ffffff !important;
+}
+
+/* Ефект при натисканні */
+.btn-premium-purple:active, 
+.btn-dark-purple:active {
+    transform: translateY(2px);       /* Кнопка вдавлюється */
+    border-bottom: 2px solid #4a148c;
+}
+    </style>
+</head>
+<body class="realms-page">
+
+    <!-- НАВБАР -->
+
+    <nav class="navbar">
+
+        <div class="nav-container">
+
+            <a href="/index.html" style="font-family: Impact; font-size: 24px; color: #fff; text-decoration: none;">WILDECHO</a>
+
+            <div class="menu-links">
+
+                <a href="/index.html">Головна</a>
+
+                <a href="/shop.html" style="color: #3c8527;">Магазин</a>
+
+                <a href="/rules.html">Правила</a>
+
+                <a href="/about-us.html">Про Нас</a>
+
+                <a href="/wiki.html">Wiki</a>
+
+                <a href="/all-news.html">Новини</a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- ГЕРОЙ-СЕКЦІЯ (Фото 1) -->
+    <section class="realms-hero">
+        <div class="container hero-wrapper">
+            <div class="realms-logo-box">
+                <span class="mc-small-label vt-font">WILD ECHO</span>
+                <h1 class="realms-title-neon vt-font"></h1>
+            </div>
+            
+            <div class="hero-float-content">
+                <div class="info-overlay">
+                    <h2 class="vt-font">ТВІЙ СВІТ,<br>ТВОЇ ПРАВИЛА</h2>
+                    <p>Повний контроль. Можливість будувати без обмежень. Перемикайся між режимами у будь-який момент.</p>
+                    <div class="hero-btns">
+                        <a href="#plans" class="btn-purple">ОБРАТИ ПЛАН <span>›</span></a>
+                        <a href="shop/rules/rules-creative.html" class="link-tutorial">Правила доступу ↗</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- СЕКЦІЯ ОБСИДІАН (Фото 2) -->
+    <section class="obsidian-section" id="plans">
+    <!-- Магічні частинки на фоні -->
+    <div class="particles-container">
+        <div class="particle cp1"></div>
+        <div class="particle cp2"></div>
+        <div class="particle cp3"></div>
+        <div class="particle cp4"></div>
+        <div class="particle cp5"></div>
+    </div>
+
+    <div class="container">
+        <h2 class="section-headline vt-font">ОБЕРИ ПРИВІЛЕЮ НА ЧАС ЯКИЙ БАЖАЄШ</h2>
+        <p class="section-subtext">Доступ до Creative режиму дозволяє тобі втілювати найсміливіші ідеї. Ми пропонуємо кілька варіантів підписки.</p>
+        
+        <div class="action-bar">
+            <a href="https://discord.gg/твій-лінк" class="btn-premium-purple">
+                МАЄШ ПИТАННЯ? ПИШИ В DISCORD ›
+            </a>
+        </div>
+
+        <div class="plans-wide-grid">
+            
+            <!-- ПЛАН 1: STANDARD -->
+            <div class="plan-card-premium">
+                <div class="plan-visual-box neon-pink-glow">
+                    <div class="visual-content">
+                        <img src="/assets/img/creative-access-for-shop.jpg" alt="Standard" class="island-img">
+                        <h3 class="vt-font">STANDARD</h3>
+                    </div>
+                </div>
+                <div class="plan-details-box">
+                    <h4>Creative Access - 1 місяць</h4>
+                    <div class="plan-price">300.00 UAH <small>/ місяць</small></div>
+                    <p>Доступ до Creative режиму на 30 днів. Повний функціонал та ведення детальних логів для вашої безпеки.*</p>
+
+                    <a href="https://discord.com/channels/1438164325901799509/1501565235025154159/1504524075484315719" class="btn-buy-creative vt-font">КУПИТИ <span>→</span></a>
+                </div>
+            </div>
+
+            <!-- ПЛАН 2: ETERNAL -->
+            <div class="plan-card-premium featured">
+                <div class="plan-visual-box neon-purple-glow">
+                    <div class="visual-content">
+                        <img src="/assets/img/creative-access-for-shop.jpg" alt="Eternal" class="island-img">
+                        <h3 class="vt-font">ETERNAL</h3>
+                    </div>
+                </div>
+                <div class="plan-details-box">
+                    <h4>Creative Access - Назавжди</h4>
+                    <div class="plan-price">700.00 UAH <small>/ вічно</small></div>
+                    <p>Повний і безстроковий доступ. Можливість будувати без обмежень на власному острові або базі.*</p>
+
+                    <a href="https://discord.com/channels/1438164325901799509/1501565235025154159/1504524075484315719" class="btn-buy-creative featured-buy vt-font">ПРИДБАТИ <span>→</span></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="disclaimer-v2">
+            <p>* Ведуться детальні логи дій гравця. Адміністрація ретельно відслідковує активність. Заборонено передавати ресурси з Creative іншим гравцям.</p>
+            <p>** Порушення будь-якого з правил Creative Access веде до ПОКАРАННЯ без попередження.</p>
+        </div>
+    </div>
+</section>
+
+    <!-- ФУТЕР (ЯК НА ФОТО 33) -->
+
+    <footer class="site-footer">
+
+    <!-- ВЕРХНЯ ЧАСТИНА -->
+
+    <div class="footer-top">
+
+        <div class="footer-container">
+
+            <!-- Логотипи та копірайт -->
+
+            <div class="footer-brand">
+
+                <div class="brand-logos">
+
+                    <img src="/assets/img/preview-image.jpg" alt="Wild Echo" class="footer-logo">
+
+                </div>
+
+                <div class="brand-info">
+
+                    <p>© 2026 WildEcho.</p>
+
+                    <div class="brand-links">
+
+                        <a href="/legal/rules-of-use.html">Правила використання</a>
+
+                        <a href="/legal/manage-consent.html">Керувати згодою</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+ 
+
+            <!-- Колонки посилань -->
+
+            <div class="footer-links">
+
+                <div class="footer-col">
+
+                    <h4>Наші проєкти</h4>
+
+                    <a href="/index.html">WildEcho</a>
+
+                </div>
+
+                <div class="footer-col">
+
+                    <h4>Спільнота</h4>
+
+                    <a href="https://discord.gg/nBhVTp8xD9">Discord Сервер</a>
+
+                    <a href="/error/404.html">Telegram Канал (поки недоступно)</a>
+
+                    <a href="/error/404.html">YouTube (поки недоступно)</a>
+
+                </div>
+
+                <div class="footer-col">
+
+                    <h4>Підтримка</h4>
+
+                    <a href="/legal/help.html">Допомога</a>
+
+                    <a href="/legal/reviews.html">Відгуки</a>
+
+                    <a href="/https://discord.gg/nBhVTp8xD9">Зв'язатися з нами</a>
+
+                    <a href="/legal/faq.html">FAQ</a>
+
+                </div>
+
+                <div class="footer-col">
+
+                    <h4>Обліковий запис</h4>
+
+                    <a href="profile.html">Профіль</a>
+
+                    <a href="login.html">Активація</a>
+
+                </div>
+
+            </div>
+
+
+ 
+
+            <!-- Рейтинг (ESRB) -->
+
+            <div class="footer-rating">
+
+                <img src="/assets/img/esrb-rating.jpg" alt="Rating">
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+ 
+
+    <!-- НИЖНЯ СІРА ПАНЕЛЬ -->
+
+    <div class="footer-bottom">
+
+        <div class="footer-container">
+
+            <div class="footer-lang">
+
+                <button class="lang-selector">
+
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+
+                    Українська
+
+                </button>
+
+            </div>
+
+           
+
+            <div class="footer-legal">
+
+                <a href="/legal/privacy-and-cookies.html">Конфіденційність та файли cookie</a>
+
+                <a href="/legal/terms-of-use.html">Умови використання</a>
+
+                <a href="/legal/trademarks.html">Товарні знаки</a>
+
+                <a href="/legal/about-our-advertising.html">Про нашу рекламу</a>
+
+                <span>© 2026 WildEcho | Наш проєкт не пов’язаний з компаніями Mojang або Microsoft</span>
+
+            </div>
+
+
+ 
+
+            <div class="footer-ms-logo">
+
+                <img src="/assets/img/preview-image.jpg" alt="WildEcho">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+</html>

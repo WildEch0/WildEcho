@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki та Гайди | WildEcho Network</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* БАЗОВІ СТИЛІ */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* ВІДЕО ФОН (затемнений) */
+        .bg-video { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; object-fit: cover; }
+        .video-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: -1; }
+
+        /* НАВБАР */
+        .navbar {
+            background-color: #1a1a1a;
+            border-bottom: 3px solid #3c8527;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .logo-img { height: 40px; }
+        .menu-links { display: flex; gap: 20px; }
+        .menu-links a { color: #fff; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 13px; }
+        .menu-links a:hover { color: #3c8527; }
+        .login-btn { background: #3c8527; color: #fff; padding: 8px 20px; text-decoration: none; font-weight: 900; font-size: 13px; }
+
+        /* WIKI LAYOUT */
+        .wiki-wrapper {
+            max-width: 1200px;
+            margin: 60px auto;
+            display: flex;
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        /* БІЧНЕ МЕНЮ (Sticky) */
+        .wiki-sidebar {
+            flex: 0 0 280px;
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+        .sidebar-box {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 20px;
+        }
+        .sidebar-title { font-family: Impact; font-size: 24px; margin-bottom: 20px; letter-spacing: 1px; }
+        .side-link {
+            display: block;
+            color: #aaa;
+            text-decoration: none;
+            padding: 10px 0;
+            font-size: 14px;
+            font-weight: bold;
+            border-bottom: 1px solid #222;
+            transition: 0.2s;
+        }
+        .side-link:hover { color: #3c8527; padding-left: 5px; }
+
+        /* ОСНОВНИЙ КОНТЕНТ */
+        .wiki-content { flex: 1; }
+        
+        .wiki-section {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 50px;
+            margin-bottom: 40px;
+        }
+
+        .tag { background: #fff; color: #000; padding: 3px 10px; font-weight: 900; font-size: 11px; text-transform: uppercase; margin-bottom: 15px; display: inline-block; }
+        
+        h1.main-title { font-family: Impact; font-size: 56px; margin-bottom: 40px; text-transform: uppercase; border-bottom: 5px solid #3c8527; display: inline-block; }
+        h2 { font-family: Impact; font-size: 32px; margin-bottom: 20px; text-transform: uppercase; color: #3c8527; }
+
+        p { color: #ccc; margin-bottom: 20px; font-size: 16px; }
+
+        /* СТИЛЬ КОМАНД */
+        .command-card {
+            background: #111;
+            border-left: 4px solid #3c8527;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            font-family: monospace;
+        }
+        .cmd { color: #3c8527; font-weight: bold; font-size: 16px; }
+        .cmd-desc { color: #888; margin-left: 10px; font-family: 'Montserrat', sans-serif; font-size: 14px; }
+
+        /* ТАБЛИЦІ */
+        .wiki-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .wiki-table th, .wiki-table td {
+            border: 1px solid #333;
+            padding: 12px;
+            text-align: left;
+        }
+        .wiki-table th { background: #222; color: #3c8527; font-weight: 900; }
+
+        footer { text-align: center; padding: 40px; color: #555; font-size: 12px; }
+
+        @media (max-width: 900px) {
+            .wiki-wrapper { flex-direction: column; }
+            .wiki-sidebar { position: relative; top: 0; width: 100%; }
+        }
+
+        /* Стиль кнопки завантаження в таблиці */
+.wiki-download-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #3c8527; /* Зелений Minecraft */
+    color: #fff !important;
+    text-decoration: none !important;
+    padding: 8px 16px;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: 0.2s ease;
+    border-bottom: 3px solid #2a5d1a; /* Тінь для 3D ефекту */
+}
+
+.wiki-download-link:hover {
+    background-color: #47a02e;
+    transform: translateY(-2px);
+    border-bottom-color: #347122;
+}
+
+.wiki-download-link:active {
+    transform: translateY(1px);
+    border-bottom-width: 1px;
+}
+
+/* Символ стрілочки або іконка */
+.wiki-download-link::after {
+    content: "⭳"; 
+    font-size: 16px;
+}
+
+.wiki-clean-link {
+    color: #47a02e !important; /* Світло-зелений */
+    text-decoration: none;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 2px;
+    transition: 0.3s;
+}
+
+.wiki-clean-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: 0.3s;
+}
+
+.wiki-clean-link:hover {
+    color: #fff !important;
+}
+
+.wiki-clean-link:hover::after {
+    width: 100%;
+}
+    </style>
+</head>
+<body>
+
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="/assets/video/hellow-video.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+
+    <!-- НАВІГАЦІЯ -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/index.html"><img src="/assets/img/preview-image.jpg" class="logo-img" alt="WildEcho"></a>
+            <div class="menu-links">
+                <a href="/index.html">Головна</a>
+                <a href="/shop.html">Магазин</a>
+                <a href="/rules.html">Правила</a>
+                <a href="/about-us.html">Про Нас</a>
+                <a href="/wiki.html" style="color: #3c8527;">Wiki</a>
+                <a href="/all-news.html">Новини</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="wiki-wrapper">
+        <!-- БІЧНЕ МЕНЮ -->
+        <aside class="wiki-sidebar">
+            <div class="sidebar-box">
+                <h3 class="sidebar-title">НАВІГАЦІЯ</h3>
+                <a href="#start" class="side-link">Початок гри</a>
+                <a href="#claims" class="side-link">Voice Chat</a>
+                <a href="#economy" class="side-link">Економіка та ринок</a>
+                <a href="#commands" class="side-link">Корисні інформація</a>
+            </div>
+        </aside>
+
+        <!-- КОНТЕНТ -->
+        <main class="wiki-content">
+            <h1 class="main-title">WIKI & ГАЙДИ</h1>
+
+            <!-- Розділ: Початок -->
+            <section id="start" class="wiki-section">
+                <span class="tag">Guide 01</span>
+                <h2>Як почати гру?</h2>
+                <p>Вітаємо на WildEcho! Щоб розпочати свою пригоду, вам потрібно підключитися за адресою <b>node10.doomhosting.com:25637</b> (версія 1.21.8). Після входу ви опинитеся на спавні.</p>
+                <p>Першим кроком рекомендуємо ознайомитися з <span class="cmd"><a href="/rules.html">Правилами</a></span>, та іншою корисною інформацією, що знаходиться нижще.</p>
+            </section>
+
+            <!-- Розділ: Приват -->
+            <section id="claims" class="wiki-section">
+                <span class="tag">Voice Chat</span>
+                <h2>Voice Chat</h2>
+                <p>На нашому сервері використовується плагін Voice Chat. Для атмосфери вам потрібен він, і звісно нього потрібно <b>Налаштувати</b>.</p>
+                <div class="command-card">
+                    <span class="cmd">1. V / М</span> <span class="cmd-desc">— відкриває меню налаштування.</span>
+                </div>
+                <div class="command-card">
+                    <span class="cmd">2. Settings</span> <span class="cmd-desc">— налаштування гучності, активація голосом або кнопкою, вибрати мікрофон та пристрій виводу.</span>
+                </div>
+                <div class="command-card">
+                    <span class="cmd">3. Налаштування</span> <span class="cmd-desc">— налаштовуй гучність для кожного з гравців окремо.</span>
+                </div>
+            </section>
+
+            <!-- Розділ: Економіка -->
+            <section id="economy" class="wiki-section">
+                <span class="tag">Economy</span>
+                <h2>Економіка та Гроші</h2>
+                <p>Валютою сервера є <b>Кастомна валюта</b>. Ви можете заробляти їх, продаючи ресурси іншим гравцям або здавати мідь <b>NPC</b> на спавні.</p>
+                <table class="wiki-table">
+                    <tr>
+                        <th>Назва валюти</th>
+                        <th>Коротко про неї</th>
+                    </tr>
+                    <tr>
+                        <td>Гривня-коін</td>
+                        <td>Рахується як Біт-Коін в реальному житті</td>
+                    </tr>
+                    <tr>
+                        <td>Срібний карбованець</td>
+                        <td>Самі прості гривні котрі ви тримаєте в руках</td>
+                    </tr>
+                    <tr>
+                        <td>Мідний карбованець</td>
+                        <td>Копійки / Шаги</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section id="commands" class="wiki-section">
+                <span class="tag">Useful information</span>
+                <h2>Корисна інформація</h2>
+                <p>Для гри на сервері рекомендовано скачати такі моди, та мати таку інформацію.</p>
+                <p><b>Моди:</b></p>
+                <table class="wiki-table">
+                    <tr>
+                        <th>Мод</th>
+                        <th>Навіщо</th>
+                        <th>Де скачати</th>
+                    </tr>
+                    <tr>
+                        <td>Мод Simple Voice Chat</td>
+                        <td>Для атмосферної гри та розмов в самій грі</td>
+                        <td>
+                            <a href="https://modrinth.com/plugin/simple-voice-chat?version=1.21.8&loader=fabric#download" class="wiki-download-link">Modrinth (Fabric)</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Мод EmoteCraft</td>
+                        <td>Для висловлення своїх емоцій без слів</td>
+                        <td>
+                            <a href="https://modrinth.com/mod/emotecraft?version=1.21.8&loader=fabric#download" class="wiki-download-link">Modrinth (Fabric)</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Бібліотека для EmoteCraft</td>
+                        <td>Для прємнішого користування</td>
+                        <td>
+                            <a href="https://modrinth.com/mod/player-animation-library?version=1.21.8&loader=fabric#download" class="wiki-download-link">Modrinth (Fabric)</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Бібліотека для EmoteCraft</td>
+                        <td>Для коректного користування</td>
+                        <td>
+                            <a href="https://modrinth.com/mod/bendable-cuboids?version=1.21.8&loader=fabric#download" class="wiki-download-link">Modrinth (Fabric)</a>
+                        </td>
+                    </tr>
+                </table>
+                <p><b>Інформація:</b></p>
+                <table class="wiki-table">
+                    <tr>
+                        <th>Інформація</th>
+                        <th>Навіщо</th>
+                        <th>посилання</th>
+                    </tr>
+                    <tr>
+                        <td>Мапа</td>
+                        <td>Подивитися мапу прекрасного світу Wild Echo</td>
+                        <td>
+                            <a href="http://node10.doomhosting.com:25673/" class="wiki-clean-link">BlueMap ↗</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>IP: node10.doomhosting.com:25637</td>
+                        <td>Щоб зайти на сервер</td>
+                        <td>ДОДАТКОВО: (minecraft 1.21.8 і вище)</td>
+                    </tr>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Плавний скрол до розділів
+        document.querySelectorAll('.side-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                window.scrollTo({
+                    top: target.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
