@@ -18,7 +18,19 @@
   </url>
 
   <url>
-    <loc>https://wildecho.netlify.app/help/</loc>
+    <loc>https://wildecho.netlify.app/about-us/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/legal/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/rules/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/about-our-advertising/</loc>
   </url>
 
   <url>
@@ -26,7 +38,15 @@
   </url>
 
   <url>
-    <loc>https://wildecho.netlify.app/about-us/</loc>
+    <loc>https://wildecho.netlify.app/help/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/how-to-buy/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/manage-consent/</loc>
   </url>
 
   <url>
@@ -38,11 +58,87 @@
   </url>
 
   <url>
-    <loc>https://wildecho.netlify.app/terms-of-use/</loc>
+    <loc>https://wildecho.netlify.app/refunds/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/reviews/</loc>
   </url>
 
   <url>
     <loc>https://wildecho.netlify.app/rules-of-use/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/terms-of-use/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/trademarks/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/certificates/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/copper-coin/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/creative-details/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/discs/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/fly-details/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/hrn-coin/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/promotions/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/silver-coin/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/timber-details/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/unban/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/unmute/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/vanish-details/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/shop/rules-creative/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/shop/rules-fly/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/shop/rules-timber/</loc>
+  </url>
+
+  <url>
+    <loc>https://wildecho.netlify.app/shop/rules-vanish/</loc>
   </url>
 
 </urlset>
