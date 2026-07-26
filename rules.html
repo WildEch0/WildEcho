@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Правила | WildEcho Network</title>
+    <title>Правила | WildEcho</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         /* БАЗОВІ СТИЛІ */
@@ -162,7 +162,7 @@
     <!-- НАВІГАЦІЯ -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/index.html"><img src="assets/img/preview-image.jpg" class="logo-img" alt="Rules"></a>
+            <a href="/index.html"><img src="/preview-image.jpg" class="logo-img" alt="Rules"></a>
             <div class="menu-links">
                 <a href="/index.html">Головна</a>
                 <a href="/shop.html">Магазин</a>
@@ -298,7 +298,7 @@
     </main>
 
     <footer>
-        <p>© 2026 WildEcho Network. Усі права захищені.</p>
+        <p>© 2026 WildEcho. Усі права захищені.</p>
     </footer>
 
     <script>
@@ -307,9 +307,9 @@
             const user = localStorage.getItem('session_user');
             const container = document.getElementById('accountButton');
             if (user) {
-                container.innerHTML = `<a href="profile.html" class="login-btn" style="background:#3c8527">ПРОФІЛЬ</a>`;
+                container.innerHTML = `<a href="/profile.html" class="login-btn" style="background:#3c8527">ПРОФІЛЬ</a>`;
             } else {
-                container.innerHTML = `<a href="login.html" class="login-btn">УВІЙТИ</a>`;
+                container.innerHTML = `<a href="/login.html" class="login-btn">УВІЙТИ</a>`;
             }
         }
         updateNavbar();
